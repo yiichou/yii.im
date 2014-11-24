@@ -1,0 +1,55 @@
+.user-profile {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Droid Sans Mono", "Ubuntu Mono", "Monaco", "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+  width: 100%;
+  padding: 0 16px;
+  overflow: hidden;
+  color: #888888;
+  text-align: center;
+}
+
+.user-profile .user-avatar {
+  margin: 16px 0;
+}
+
+.user-profile .user-avatar img {
+  width: 256px;
+  height: 256px;
+}
+
+.user-profile .user-socials a {
+  color: #A7A7A7;
+  font-size: 14px;
+  line-height: 1.5em;
+  text-decoration: none;
+}
+
+.user-profile .user-socials a:hover {
+  color: #777777;
+}
+
+.user-profile .user-motivation {
+  font-size: 64px;
+  line-height: 66px;
+  margin: 16px 0;
+}
+
+@media (max-width: 480px) {
+  .user-profile .user-avatar img {
+    width: 128px;
+    height: 128px;
+  }
+
+  .user-profile .user-motivation {
+    font-size: 48px;
+    line-height: 50px;
+  }
+}
+
+@media (max-height: 480px) {
+  .user-profile .user-avatar {
+    margin: 0;
+  }
+}

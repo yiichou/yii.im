@@ -1,0 +1,124 @@
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+
+*/
+
+code,
+code .ruby .subst,
+code .tag .title,
+code .lisp .title {
+  color: black;
+}
+
+code .string,
+code .title,
+code .constant,
+code .parent,
+code .tag .value,
+code .rules .value,
+code .rules .value .number,
+code .preprocessor,
+code .ruby .symbol,
+code .ruby .symbol .string,
+code .ruby .symbol .keyword,
+code .ruby .symbol .keymethods,
+code .instancevar,
+code .aggregate,
+code .template_tag,
+code .django .variable,
+code .smalltalk .class,
+code .addition,
+code .flow,
+code .stream,
+code .bash .variable,
+code .apache .tag,
+code .apache .cbracket,
+code .tex .command,
+code .tex .special,
+code .erlang_repl .function_or_atom,
+code .markdown .header {
+  color: #800;
+}
+
+code .comment,
+code .annotation,
+code .template_comment,
+code .diff .header,
+code .chunk,
+code .markdown .blockquote {
+  color: #888;
+}
+
+code .number,
+code .date,
+code .regexp,
+code .literal,
+code .smalltalk .symbol,
+code .smalltalk .char,
+code .go .constant,
+code .change,
+code .markdown .bullet,
+code .markdown .link_url {
+  color: #080;
+}
+
+code .label,
+code .javadoc,
+code .ruby .string,
+code .decorator,
+code .filter .argument,
+code .localvars,
+code .array,
+code .attr_selector,
+code .important,
+code .pseudo,
+code .pi,
+code .doctype,
+code .deletion,
+code .envvar,
+code .shebang,
+code .apache .sqbracket,
+code .nginx .built_in,
+code .tex .formula,
+code .erlang_repl .reserved,
+code .input_number,
+code .markdown .link_label {
+  color: #88F
+}
+
+code .keyword,
+code .id,
+code .phpdoc,
+code .title,
+code .built_in,
+code .aggregate,
+code .css .tag,
+code .javadoctag,
+code .phpdoc,
+code .yardoctag,
+code .smalltalk .class,
+code .winutils,
+code .bash .variable,
+code .apache .tag,
+code .go .typename,
+code .tex .command,
+code .markdown .strong {
+  font-weight: bold;
+}
+
+code .markdown .emphasis {
+  font-style: italic;
+}
+
+code .nginx .built_in {
+  font-weight: normal;
+}
+
+code .coffeescript .javascript,
+code .xml .css,
+code .xml .javascript,
+code .xml .vbscript,
+code .tex .formula {
+  opacity: 0.5;
+}

@@ -1,0 +1,10 @@
+<% unless @errors.blank? %>
+  <div class="alert alert-error">
+    <button data-dismiss="alert" class="close">×</button>
+    <ul>
+      <% @errors.each do |msg| %>
+        <li><i class='icon-ban-circle'></i> <%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

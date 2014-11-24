@@ -1,0 +1,34 @@
+en:
+  domain: yii.im
+  session_key: _yii_im_session_mem_cache_secure
+
+  memcache:
+    servers:
+      - 127.0.0.1
+    options:
+      namespace: _yii_im_cache_dalli
+      expires_in: <%= 1.day %>
+      compress: true
+
+  html:
+    title: yii.im
+    keywords: Rails,Ruby,Sass,bootstrap
+    description: Just a worm, seek for true, live in shadow, no more...
+
+  email:
+    default: me@ichou.cn
+    smtp:
+      host: smtp.qq.com
+      port: 465 
+      user_name: me@ichou.cn
+      password: '|@m|ch0u'
+
+  socials:
+    twitter: iamichou
+    github: ivanchou
+    google_plus: 117814125773172948098
+    facebook: ichou.cn
+
+  google_analytics:
+    account: UA-50000114-1 
+    domain: ichou.cn

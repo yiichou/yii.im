@@ -11,6 +11,13 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+# Ignore the default MondoDB database.
+/db/journal/
+/db/_*/
+/db/*.0
+/db/*.ns
+/db/mongod*
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp

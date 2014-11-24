@@ -1,0 +1,39 @@
+.tags-list li:before {
+  content: "\f02b";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  color: #AAAAAA;
+  display: inline-block;
+  text-decoration: inherit;
+  font-size: 70%;
+  padding-right: 8px;
+  vertical-align: middle;
+}
+
+.tags-list li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+  margin-bottom: 8px;
+  padding-right: 8px;
+}
+
+.tags-list .tag-actions {
+  display: none;
+}
+
+a.tag-action,
+a.tag-action:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 4px 8px;
+}
+
+@media (max-width: 480px) {
+  .tags-list li {
+    width: 100%;
+  }
+}

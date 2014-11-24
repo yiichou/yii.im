@@ -1,0 +1,82 @@
+.diff {
+  overflow: auto;
+}
+
+.diff ul {
+  background: #fff;
+  overflow: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: table;
+  width: 100%;
+  font-family: "Droid Sans Mono", "Ubuntu Mono", "Monaco", "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+  font-size: 12px;
+}
+
+.diff del, .diff ins {
+  display: block;
+  text-decoration: none;
+}
+
+.diff li {
+  padding: 0;
+  display: table-row;
+  margin: 0;
+  height: 1em;
+}
+
+.diff li.ins {
+  background: #dfd;
+  color: #080;
+}
+
+.diff li.del {
+  background: #fee;
+  color: #b00;
+}
+
+.diff li:hover {
+  background: #ffc;
+}
+
+.diff del, .diff ins, .diff span {
+  white-space: pre-wrap;
+}
+
+.diff del strong {
+  font-weight: normal;
+  background: #fcc;
+}
+
+.diff ins strong {
+  font-weight: normal;
+  background: #9f9;
+}
+
+.diff li.diff-comment  {
+  display: none;
+}
+
+.diff li.diff-block-info  {
+  background: #DDDDDD;
+}
+
+.diff-header a,
+.diff-header a:hover {
+  color: inherit;
+  font-size: 64%;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.diff-header i {
+  float: right;
+  font-size: 64%;
+  color: #BBBBBB;
+  margin-left: 16px;
+}
+
+.diff-header i:hover {
+  color: #888888;
+}

@@ -1,0 +1,169 @@
+.posts-archives {
+  margin-right: 300px;
+}
+
+.posts-archive {
+  margin-bottom: 48px;
+}
+
+.posts-archive time {
+  display: block;
+  float: left;
+  font-family: "Russo One", "Ubuntu", "Lucida Grande", "Lucida Sans Unicode", "Helvetica Neue", "DejaVu Sans", "Verdana", "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+  font-size: 27px;
+  color: #CCCCCC;
+  font-weight: bold;
+  padding: 2px 0;
+}
+
+.posts-list {
+  margin-left: 190px;
+}
+
+.posts-list li {
+  margin-bottom: 8px;
+  list-style: decimal;
+}
+
+.posts-tags {
+  float: right;
+  width: 256px;
+  border-left: 8px solid #EEEEEE;
+  padding-left: 16px;
+}
+
+.posts-tags ul li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+  margin-bottom: 8px;
+}
+
+.posts-tags ul li:before {
+  content: "\f02b";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  color: #AAAAAA;
+  display: inline-block;
+  text-decoration: inherit;
+  font-size: 70%;
+  padding-right: 8px;
+  vertical-align: middle;
+}
+
+.post-header a {
+  display: table-cell;
+  color: inherit;
+}
+
+.post-header a:hover {
+  text-decoration: none;
+}
+
+.post-header time {
+  font-family: "Quantico", "Ubuntu", "Lucida Grande", "Lucida Sans Unicode", "Helvetica Neue", "DejaVu Sans", "Verdana", "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+  color: #CCCCCC;
+  font-size: 12px;
+  line-height: 1em;
+  float: right;
+  display: table-cell;
+  vertical-align: bottom;
+  margin-top: -1.5em;
+}
+
+.post-tags li {
+  float: right;
+  margin-left: 8px;
+  margin-bottom: 4px;
+}
+
+.post-tags li a {
+  color: #CCCCCC;
+  font-size: 12px;
+  font-family: "Droid Sans Mono", "Ubuntu Mono", "Monaco", "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+}
+
+.post-tags li a:hover {
+  color: #AAAAAA;
+  text-decoration: none;
+}
+
+.post-form {
+  padding: 32px;
+}
+
+.post-form .post-published {
+  margin: 8px;
+}
+
+.post-form .expanding-button {
+  margin: 8px 0 8px 8px;
+  line-height: 1em;
+}
+
+@media (min-width: 1200px) {
+  .posts-archives {
+    margin-right: 600px;
+  }
+
+  .posts-tags {
+    width: 512px;
+  }
+}
+
+@media (max-width: 767px) {
+  .posts-archives {
+    margin-right: 30%;
+  }
+
+  .posts-tags {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 28%;
+  }
+
+  .posts-tags ul li {
+    width: 100%;
+  }
+
+  .posts-archive time {
+    float: none;
+    color: #CCCCCC;
+    margin-bottom: 16px;
+  }
+
+  .posts-list {
+    margin-left: 32px;
+  }
+
+  .post-form {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .posts-archives {
+    margin-right: 0;
+  }
+
+  .posts-tags {
+    float: none;
+    border-left: 0 none;
+    border-bottom: 8px solid #EEEEEE;
+    width: 100%;
+    padding: 0 0 16px;
+    margin: -16px 0 32px;
+  }
+
+  .posts-tags ul li {
+    width: 50%;
+  }
+
+  .post-form {
+    padding: 16px 0;
+  }
+}
