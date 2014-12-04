@@ -17,4 +17,9 @@ class Tag
   has_and_belongs_to_many :posts
 
   scope :used, ->{ where(:count.gt => 0) }
+  
+  def set_count
+    self.set(:count => self.posts.published.count)
+    self.destroy if self.count == 0
+  end
 end

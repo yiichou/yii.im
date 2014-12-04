@@ -60,8 +60,16 @@ class PostsController < ApplicationController
 
   def update
     respond_to do |format|
+      
+      deled_tags = @post.tags_str.split(',') - post_params[:tags_str].split(',')
+      
       if @post.update_attributes(post_params)
         @post.assets = Asset.find(params[:asset_ids] || [])
+        
+        if deled_tags.length > 0
+          deled_tags.each { |t| Tag.where(title: /^#{t}$/i).first.set_count }
+        end
+        
         format.html { redirect_to @post, notice: t('flash.posts.success.update') }
         format.json { head :no_content }
       else
@@ -96,7 +104,7 @@ class PostsController < ApplicationController
   
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit(:published, :title, :content, :tags, :tags_str)
+    params.require(:post).permit(:published, :title, :content, :tags_str)
   end
   
 end
