@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :path => "/account", :path_names => { :sign_in => 'signin', :sign_out => 'signout', :password => 'password', :registration => '', :sign_up => 'signup' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'root#index'
   
+  get '/feed' => 'posts#feed', :as => :feed, :defaults => { :format => 'atom' }
   
   resources :posts do
     resources :histories, :only => [:index, :show, :destroy, :update]

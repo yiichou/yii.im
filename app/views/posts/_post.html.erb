@@ -1,0 +1,29 @@
+<%= cache post do %>
+  <div class="post block">
+    <h1 class="post-header block-header">
+      <%= link_to post.title, post %>
+      <%= timeago post.created_at %>
+    </h1>
+    <hr class="double-line" />
+    <div class="block-content">
+      <% unless post.tags.blank? %>
+        <ul class="post-tags clearfix">
+          <% post.tags.each do |tag| %>
+            <li><%= link_to tag.title, tag %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <div class="content">
+        <%= markdown post.content %>
+      </div>
+      <% unless post.assets.blank? %>
+        <hr class="double-line" />
+        <ul class="content assets-list">
+          <% post.assets.each do |asset| %>
+            <li><%= link_to asset.file_name, asset_path(asset, :version => 'origin') %> <%= "(#{number_to_human_size(asset.file_size)})" %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+<% end %>

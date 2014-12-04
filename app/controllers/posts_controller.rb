@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(params[:post])
+    @post = current_user.posts.new(post_params)
 
     respond_to do |format|
       if @post.save
@@ -60,7 +60,7 @@ class PostsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @post.update_attributes(params[:post])
+      if @post.update_attributes(post_params)
         @post.assets = Asset.find(params[:asset_ids] || [])
         format.html { redirect_to @post, notice: t('flash.posts.success.update') }
         format.json { head :no_content }
@@ -93,4 +93,10 @@ class PostsController < ApplicationController
   def find_post
     @post = Post.find(params[:id])
   end
+  
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def post_params
+    params.require(:post).permit(:published, :title, :content, :tags, :tags_str)
+  end
+  
 end

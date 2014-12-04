@@ -1,0 +1,11 @@
+<%= cache history do %>
+  <div class="block">
+    <h1 class="diff-header block-header">
+      <%= link_to timeago(history.created_at), [@post, history] %>
+      <%= link_to raw('<i class="icon-undo"></i>'), [@post, history], :method => :PUT, :confirm => t('views.action.confirm'), :title => t('views.histories.revert') %>
+      <%= link_to raw('<i class="icon-trash"></i>'), [@post, history], :method => :DELETE, :confirm => t('views.action.confirm') %>
+    </h1>
+    <hr class="double-line" />
+    <div class="diff-content block-content"><%= diff history %></div>
+  </div>
+<% end %>

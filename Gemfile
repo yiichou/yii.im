@@ -9,6 +9,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-fileupload-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
@@ -26,6 +28,8 @@ gem 'rails-timeago', :git => 'https://github.com/vecio/rails-timeago.git'
 # Pagination with Kaminari
 gem 'kaminari'
 
+gem 'codemirror-rails'
+
 gem 'pandoc-ruby'
 gem 'nokogiri'
 gem 'diffy'
@@ -33,4 +37,11 @@ gem 'diffy'
 gem 'mongoid'
 gem 'mongoid_slug'
 gem 'mongoid-history'
+
+gem 'daemons'
+gem 'delayed_job_mongoid'
+
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 

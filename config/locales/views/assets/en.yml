@@ -1,0 +1,11 @@
+en:
+  views:
+    assets:
+      add_files: 'Add files...'
+      upload: 'Upload'
+      cancel: 'Cancel'
+      download: 'Download'
+      slideshow: 'Slideshow'
+      previous: 'Previous'
+      next: 'Next'
+      create_error: 'Upload error'

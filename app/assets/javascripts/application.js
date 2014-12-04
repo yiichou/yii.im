@@ -1,25 +1,25 @@
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui/js/jquery-ui-1.8.23.custom.min
+//= require jquery-ui
+
 //= require jquery-plugins/jquery.cookie
 //= require jquery-plugins/jquery.color
 //= require jquery-plugins/jquery.hotkeys
 //= require rails-timeago
 //= require bootstrap/js/bootstrap
 //= require highlight/highlight.min
-//= require codemirror/lib/codemirror
-//= require codemirror/lib/util/overlay
-//= require codemirror/mode/xml/xml
-//= require codemirror/mode/markdown/markdown
-//= require codemirror/mode/gfm/gfm
-//= require codemirror/mode/javascript/javascript
-//= require codemirror/mode/css/css
-//= require codemirror/mode/htmlmixed/htmlmixed
-//= require codemirror/mode/clike/clike
-//= require codemirror/mode/ruby/ruby
-//= require codemirror/mode/haskell/haskell
-//= require codemirror/mode/shell/shell
-//= require codemirror/mode/yaml/yaml
+
+//= require codemirror
+//= require codemirror/modes/ruby
+//= require codemirror/modes/markdown
+//= require codemirror/modes/gfm
+//= require codemirror/modes/javascript
+//= require codemirror/modes/css
+//= require codemirror/modes/htmlmixed
+//= require codemirror/modes/shell
+//= require codemirror/modes/yaml
+//= require codemirror/addons/mode/overlay
+
 //= require showdown/src/showdown
 //= require tag-it/js/tag-it
 //= require_tree .
@@ -48,7 +48,7 @@ jQuery(function ($) { $(document).ready(function(){
       }
     });
 
-    $('.editor-attach').live('click', function(e) {
+    $(document).on('click', '.editor-attach', function(e) {
       e.preventDefault();
       var _n = $(this).data('name');
       var _c = editor.getCursor();
@@ -66,7 +66,7 @@ jQuery(function ($) { $(document).ready(function(){
       }
     });
 
-    $(area).live('content:clear', function(e) {
+    $(document).on('content:clear', area, function(e) {
       editor.setValue('');
       editor.getTextArea().value = '';
     });
@@ -115,7 +115,7 @@ jQuery(function ($) { $(document).ready(function(){
     },
   });
 
-  $('.expanding-button').live('click', function(e){
+  $(document).on('click', '.expanding-button', function(e){
     $($(this).data('target')).slideToggle();
   });
 

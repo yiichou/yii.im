@@ -20,7 +20,7 @@ class Post
   has_many :assets, as: :attachable, autosave: true, dependent: :destroy
   has_and_belongs_to_many :tags, autosave: true
 
-  # paginates_per 16
+  paginates_per 16
 
   track_history :on => [:published, :title, :content, :updated_at]
 
@@ -38,15 +38,15 @@ class Post
   end
 
   after_save do |p|
-    p.tags.each { |t| t.set(:count, t.posts.published.count) }
+    p.tags.each { |t| t.set(:count => t.posts.published.count) }
   end
 
   after_update do |p|
-    p.set(:created_at, p.updated_at) if p.changes['published'] && p.changes['published'][1]
+    p.set(:created_at => p.updated_at) if p.changes['published'] && p.changes['published'][1]
   end
 
   after_destroy do |p|
-    p.tags.each { |t| t.set(:count, t.posts.published.count) }
+    p.tags.each { |t| t.set(:count => t.posts.published.count) }
     p.history_tracks.destroy_all
   end
 end

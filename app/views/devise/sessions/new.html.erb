@@ -1,0 +1,22 @@
+<div class="block">
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'signin-form block-content' }) do |f| %>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end -%>
+
+    <div class="actions"><%= f.submit :class => 'btn' %></div>
+  <% end %>
+</div>

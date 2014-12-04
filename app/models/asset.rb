@@ -6,10 +6,8 @@ class Asset
   field :content_type, type: String
   field :file_name, type: String
   field :file_size, type: Integer, default: 0
-  field :file_processing, type: Boolean
 
-  # mount_uploader :file, FileUploader
-  # process_in_background :file
+  mount_uploader :file, FileUploader
 
   belongs_to :user, index: true
   belongs_to :attachable, polymorphic: true, index: true

@@ -10,11 +10,12 @@
  *
  *= require bootstrap/css/bootstrap
  *= require font-awesome/css/font-awesome
- *= require codemirror/lib/codemirror
+
+ *= require codemirror
+
  *= require highlight/styles/default
- *= require jquery-ui/css/flick/jquery-ui-1.8.23.custom
- *= require jQuery-File-Upload/css/bootstrap-image-gallery.min
- *= require jQuery-File-Upload/css/jquery.fileupload-ui
+ *= require jquery-ui
+ *= require jquery.fileupload-ui
  *= require tag-it/css/jquery.tagit
  *= require tag-it/css/tagit.ui-zendesk
  *= require_self

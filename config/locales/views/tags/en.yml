@@ -1,0 +1,7 @@
+en:
+  flash:
+    tags:
+      success:
+        create: "Successfully create a new tag."
+        update: "Successfully update the tag."
+        destroy: "Successfully delete the tag."

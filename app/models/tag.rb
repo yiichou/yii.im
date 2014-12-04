@@ -16,5 +16,5 @@ class Tag
 
   has_and_belongs_to_many :posts
 
-  scope :used, where(:count.gt => 0)
+  scope :used, ->{ where(:count.gt => 0) }
 end

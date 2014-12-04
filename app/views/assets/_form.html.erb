@@ -1,0 +1,189 @@
+<%= form_for @asset || current_user.assets.new, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
+  <!-- The loading indicator is shown during file processing -->
+  <div class="fileupload-loading"></div>
+  <!-- The table listing the files available for upload/download -->
+  <table role="presentation" class="table table-striped" style="width:100%;"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
+  <div class="fileupload-buttonbar">
+    <!-- The global progress information -->
+    <div class="fileupload-progress fade">
+      <!-- The global progress bar -->
+      <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+        <div class="bar" style="width:0%;"></div>
+      </div>
+      <!-- The extended global progress information -->
+      <div class="progress-extended">&nbsp;</div>
+    </div>
+    <div class="buttons">
+      <!-- The fileinput-button span is used to style the file input field as button -->
+      <span class="btn btn-success fileinput-button">
+        <i class="icon-plus icon-white"></i>
+        <span><%= t('views.assets.add_files') %></span>
+        <%= f.file_field :file, multiple: true %>
+      </span>
+      <button type="submit" class="btn btn-primary start">
+        <i class="icon-upload icon-white"></i>
+        <span><%= t('views.assets.upload') %></span>
+      </button>
+      <button type="reset" class="btn btn-warning cancel">
+        <i class="icon-ban-circle icon-white"></i>
+        <span><%= t('views.assets.cancel') %></span>
+      </button>
+    </div>
+  </div>
+<% end %>
+
+<!-- modal-gallery is the modal dialog used for the image gallery -->
+<div id="modal-gallery" class="modal modal-gallery hide fade" data-filter=":odd">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h3 class="modal-title"></h3>
+    </div>
+    <div class="modal-body"><div class="modal-image"></div></div>
+    <div class="modal-footer">
+        <a class="btn modal-download" target="_blank">
+            <i class="icon-download"></i>
+            <span><%= t('views.assets.download') %></span>
+        </a>
+        <a class="btn btn-success modal-play modal-slideshow" data-slideshow="5000">
+            <i class="icon-play icon-white"></i>
+            <span><%= t('views.assets.slideshow') %></span>
+        </a>
+        <a class="btn btn-primary modal-prev">
+            <i class="icon-arrow-left icon-white"></i>
+            <span><%= t('views.assets.previous') %></span>
+        </a>
+        <a class="btn btn-primary modal-next">
+            <span><%= t('views.assets.next') %></span>
+            <i class="icon-arrow-right icon-white"></i>
+        </a>
+    </div>
+</div>
+
+<!-- The template to display files available for upload -->
+<script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td class="preview"><span class="fade"></span></td>
+        <td class="name"><span>{%=file.name%}</span><br /><span>{%=o.formatFileSize(file.size)%}</span></td>
+        {% if (file.error) { %}
+            <td class="error" colspan="2"><span class="label label-important"><i class="icon-exclamation-sign"></i></span> {%=file.error%}</td>
+        {% } else if (o.files.valid && !i) { %}
+            <td>
+                <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar" style="width:0%;"></div></div>
+            </td>
+            <td class="start">{% if (!o.options.autoUpload) { %}
+                <button class="btn btn-primary">
+                    <i class="icon-upload icon-white"></i>
+                </button>
+            {% } %}</td>
+        {% } else { %}
+            <td colspan="2"></td>
+        {% } %}
+        <td class="cancel">{% if (!i) { %}
+            <button class="btn btn-warning">
+                <i class="icon-ban-circle icon-white"></i>
+            </button>
+        {% } %}</td>
+    </tr>
+{% } %}
+</script>
+<!-- The template to display files available for download -->
+<script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+        <input type="hidden" name="file_id" value="{%=file.id%}" />
+        {% if (file.error) { %}
+            <td class="preview"></td>
+            <td class="name"><span>{%=file.name%}</span><br /><span>{%=o.formatFileSize(file.size)%}</span></td>
+            <td class="error" colspan="2"><span class="label label-important"><i class="icon-exclamation-sign"></i></span> {%=file.error%}</td>
+        {% } else { %}
+            <td class="preview">{% if (file.thumbnail_url) { %}
+                <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
+            {% } %}</td>
+            <td class="name"><a href="{%=file.url%}" title="{%=file.name%}" rel="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a><br /><span>{%=o.formatFileSize(file.size)%}</span></td>
+            <td></td>
+            <td class="attach">
+              <button class="btn btn-success editor-attach" data-name="{%=file.name%}" data-url="{%=file.url%}">
+                <i class="icon-paper-clip"></i>
+              </button>
+            </td>
+        {% } %}
+        <td class="delete">
+            <button class="btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.url%}">
+                <i class="icon-trash icon-white"></i>
+            </button>
+        </td>
+    </tr>
+{% } %}
+</script>
+
+
+
+<!-- The Templates and Load Image plugins are included for the FileUpload user interface -->
+<%= javascript_include_tag 'jquery-fileupload' %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+      var attach_files = function(files) {
+        console.log("asdasd");
+        var attachCon = $(".attachable");
+        if (attachCon.length > 0) {
+          console.log(files);
+          for (var i = 0, file; file = files[i]; i++) {
+            console.log(file);
+            if (!$('input[name="asset_ids[]"][value="' + file.id + '"]').length > 0) {
+              var hi = $('<input type="hidden" name="asset_ids[]" />');
+              hi.attr('value', file.id);
+              hi.appendTo(attachCon);
+              
+            }
+          }
+        }
+      };
+
+      var assign_attachable = function() {
+        var aid = $('input[name="attachable_id"]');
+        var atype = $('input[name="attachable_type"]');
+        if (aid.length > 0 && atype.length > 0) {
+          var hi = $('<input type="hidden" name="asset[attachable_id]" />');
+          hi.attr('value', aid.val());
+          hi.appendTo($('#fileupload'));
+          hi = $('<input type="hidden" name="asset[attachable_type]" />');
+          hi.attr('value', atype.val());
+          hi.appendTo($('#fileupload'));
+        }
+      };
+
+      // Initialize the jQuery File Upload widget:
+      $('#fileupload').fileupload();
+      $('#fileupload').fileupload('option', {
+        maxFileSize: 50000000,
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png|tar|tar.gz|tar.bz2|7z|zip|rar|apk|pdf|odt|txt)$/i,
+      });
+
+      assign_attachable();
+
+      $('#fileupload').bind('fileuploaddone', function (e, data) {
+        attach_files(data.result.files);
+      });
+      $('#fileupload').bind('fileuploaddestroyed', function (e, data) {
+        var _id = $('input[name="file_id"]', data.context).val();
+        $('input[name="asset_ids[]"][value="' + _id + '"]').remove();
+      });
+
+      // Load existing files:
+      $.getJSON($('#fileupload').prop('action'),
+        { attachable_id: $('input[name="attachable_id"]').val() },
+        function (files) {
+          attach_files(files);
+          var fu = $('#fileupload').data('blueimpFileupload');
+          fu._adjustMaxNumberOfFiles(-files.length);
+          var template = fu._renderDownload(files).appendTo($('#fileupload .files'));
+          // Force reflow:
+          fu._reflow = fu._transition && template.length && template[0].offsetWidth;
+          template.addClass('in');
+          $('#loading').remove();
+        }
+      );
+  });
+</script>

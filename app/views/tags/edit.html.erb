@@ -1,0 +1,10 @@
+<div class="block">
+  <%= form_for(@tag, :html => { :class => 'block-content post-form'}) do |f| %>
+    <div class="field">
+      <%= f.text_field :title %>
+    </div>
+    <div class="actions">
+      <%= f.submit :class => 'btn' %>
+    </div>
+  <% end %>
+</div>

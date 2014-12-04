@@ -1,0 +1,15 @@
+<div class="block">
+  <ul class="block-content tags-list clearfix">
+    <% @tags.each do |tag| %>
+      <li>
+        <%= link_to tag.title, tag %>
+        <% if user_signed_in? %>
+          <div class="tag-actions">
+            <%= link_to raw('<i class="icon-edit"></i>'), edit_tag_path(tag), :class => 'tag-action' %>
+            <%= link_to raw('<i class="icon-trash"></i>'), tag, :method => :DELETE, :confirm => t('views.action.confirm'), :class => 'tag-action' %>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
