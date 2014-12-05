@@ -6,8 +6,8 @@
 //= require jquery-plugins/jquery.color
 //= require jquery-plugins/jquery.hotkeys
 //= require rails-timeago
-//= require bootstrap/js/bootstrap
-//= require highlight/highlight.min
+//= require bootstrap
+//= require highlight.min
 
 //= require codemirror
 //= require codemirror/modes/ruby
@@ -20,8 +20,8 @@
 //= require codemirror/modes/yaml
 //= require codemirror/addons/mode/overlay
 
-//= require showdown/src/showdown
-//= require tag-it/js/tag-it
+//= require showdown
+//= require tag-it
 //= require_tree .
 
 jQuery(function ($) { $(document).ready(function(){

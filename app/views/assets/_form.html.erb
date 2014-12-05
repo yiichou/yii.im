@@ -125,12 +125,9 @@
 <script type="text/javascript" charset="utf-8">
   $(function () {
       var attach_files = function(files) {
-        console.log("asdasd");
         var attachCon = $(".attachable");
         if (attachCon.length > 0) {
-          console.log(files);
           for (var i = 0, file; file = files[i]; i++) {
-            console.log(file);
             if (!$('input[name="asset_ids[]"][value="' + file.id + '"]').length > 0) {
               var hi = $('<input type="hidden" name="asset_ids[]" />');
               hi.attr('value', file.id);

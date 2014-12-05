@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   resources :assets, :path => '/files/'
   resources :tags, :only => [:index, :show, :edit, :update, :destroy]
+  
+  get "/assets/fonts/:name" => redirect("/fonts/%{name}") ,:constraints => {:name => /.+/} if Rails.env.development?
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

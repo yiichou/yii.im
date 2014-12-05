@@ -8,16 +8,16 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require bootstrap/css/bootstrap
- *= require font-awesome/css/font-awesome
+ *= require bootstrap
+ *= require font-awesome
 
  *= require codemirror
 
- *= require highlight/styles/default
+ *= require highlight
  *= require jquery-ui
  *= require jquery.fileupload-ui
- *= require tag-it/css/jquery.tagit
- *= require tag-it/css/tagit.ui-zendesk
+ *= require tag-it/jquery.tagit
+ *= require tag-it/tagit.ui-zendesk
  *= require_self
  *= require_tree .
  */
