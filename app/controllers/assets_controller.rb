@@ -57,7 +57,9 @@ class AssetsController < ApplicationController
           render :json => {files: [jq_hash(@asset)]}.to_json, status: :created, location: @asset
         }
       else
-        render :json => [{:error => t('views.assets.create_error')}], :status => 304
+        format.json {
+          render :json => [{:error => t('views.assets.create_error')}], :status => 304
+        }
       end
     end
   end
