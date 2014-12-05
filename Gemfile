@@ -45,3 +45,4 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
+gem 'puma'
