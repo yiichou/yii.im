@@ -4,8 +4,15 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# Ignore Unploads
+
 # Ignore bundler config.
 /.bundle
+
+# Ignore .rvmrc file
+/.rvmrc
+/.ruby-version
+/.ruby-gemset
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -13,6 +20,17 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+/public/uploads/
 /tmp
+
+# Ignore other unneeded files.
+database.yml
+/db/schema.rb
+doc/
+*.swp
+*~
+.project
+.idea
+.secret
 .DS_Store
 */.DS_Store
