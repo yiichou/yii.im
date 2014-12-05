@@ -67,3 +67,15 @@ test:
         # low amounts for fast failures.
         max_retries: 1
         retry_interval: 0
+        
+production:
+  sessions:
+    default:
+      database: yii_im
+      hosts:
+        - localhost:27017
+      options:
+        read: primary
+        max_retries: 1
+        retry_interval: 0
+

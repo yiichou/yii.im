@@ -22,7 +22,7 @@
 
 //= require showdown
 //= require tag-it
-//= require_tree .
+//= require tags
 
 jQuery(function ($) { $(document).ready(function(){
 
