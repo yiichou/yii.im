@@ -55,7 +55,13 @@
 }
 
 .diff li.diff-comment  {
-  display: none;
+  background: #fee;
+  color: #b00;
+}
+
+.diff li.diff-comment + .diff-comment  {
+  background: #dfd;
+  color: #080;
 }
 
 .diff li.diff-block-info  {
