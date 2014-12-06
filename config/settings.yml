@@ -16,19 +16,19 @@ en:
     description: Just a worm, seek for true, live in shadow, no more...
 
   email:
-    default: me@ichou.cn
+    default: yiichou@gmail.com
     smtp:
-      host: smtp.qq.com
-      port: 465 
-      user_name: me@ichou.cn
-      password: '|@m|ch0u'
+      host: smtp.gmail.com
+      port: 587 
+      user_name: yiichou
+      password: 'goaweplz'
 
   socials:
     twitter: iamichou
     github: ivanchou
-    google_plus: 117814125773172948098
+    google_plus: 106025147843011494846
     facebook: ichou.cn
 
   google_analytics:
-    account: UA-50000114-1 
-    domain: ichou.cn
+    account: UA-57408564-1
+    domain: yii.im
