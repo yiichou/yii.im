@@ -12,21 +12,11 @@ class AssetsController < ApplicationController
   end
 
   def show
-    params[:version] = 'small' if params[:version].blank? && cookies[:resolution].to_i * cookies[:ratio].to_f < 1280
-    path = case params[:version]
-           when 'small', 'thumb', 'large'
-             @asset.file.send(params[:version]).path
-           else
-             @asset.file.path
-           end
-
     expires_in 1.year
-    if File.exists?(path)
-      send_file(path, disposition: 'inline') if stale?(:etag => @asset, :last_modified => @asset.updated_at.utc)
-    elsif params[:version] == 'thumb'
-      send_file(default_thumb(@asset.content_type), disposition: 'inline') if stale?(:etag => @asset, :last_modified => @asset.updated_at.utc)
-    elsif File.exists?(@asset.file.path)
+    if File.exists?(@asset.file.path)
       send_file(@asset.file.path, disposition: 'inline') if stale?(:etag => @asset, :last_modified => @asset.updated_at.utc)
+    elsif @asset.content_type
+      send_file(default_thumb(@asset.content_type), disposition: 'inline') if stale?(:etag => @asset, :last_modified => @asset.updated_at.utc)
     else
       render_404
     end
@@ -75,12 +65,21 @@ class AssetsController < ApplicationController
   end
 
   def jq_hash(asset)
+
+    if asset.content_type.include? "image"
+      url = "http://#{Preference.aliyun_oss.img}/#{asset.file.current_path}"
+      thumbnail_url = "#{url}@!thumbnail"
+    else
+      url = url = "http://#{Preference.aliyun_oss.stc}/#{asset.file.current_path}"
+      thumbnail_url = asset_url(asset)
+    end
+
     {
       "id" => asset.id.to_s,
       "name" => asset.file_name,
       "size" => asset.file_size,
-      "url" => asset_url(asset),
-      "thumbnail_url" => asset_url(asset, :version => :thumb),
+      "url" => url,
+      "thumbnail_url" => thumbnail_url,
       "delete_type" => "DELETE"
     }
   end

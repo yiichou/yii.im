@@ -32,3 +32,10 @@ en:
   google_analytics:
     account: UA-57408564-1
     domain: yii.im
+
+  aliyun_oss:
+    access_id: MIpSAKlWwWF8XfX9
+    access_key: wfPPyRqRcgkzwLilNxn7jpVk1jbhyL
+    bucket: chou
+    stc: stc.ichou.cn
+    img: img.ichou.cn

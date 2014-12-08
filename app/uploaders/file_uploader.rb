@@ -1,25 +1,22 @@
 # encoding: utf-8
 
-class FileUploader < CarrierWave::Uploader::Base
-  
-  after :remove, :remove_dir
-  
+class FileUploader < CarrierWave::Uploader::Base  
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+  # include CarrierWave::MiniMagick
   
   include CarrierWave::MimeTypes
 
   process :set_content_type
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  # storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "yii.im/#{model.class.to_s.underscore}/#{model.id}"
   end
 
   # Create different versions of your uploaded files:
@@ -31,13 +28,9 @@ class FileUploader < CarrierWave::Uploader::Base
   #   process :resize_to_limit => [854, 480]
   # end
 
-  version :thumb, :if => :image? do
-    process :resize_to_fill => [80, 80]
-  end
-
-  def image?(file)
-    file.content_type.include? 'image'
-  end
+  # version :thumb do
+  #   process :resize_to_fill => [80, 80]
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -54,11 +47,5 @@ class FileUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-  
-  # Delete the auto-created directory when remove the files
-  def remove_dir
-    dir = 'public/' +  store_dir
-    Dir.rmdir(dir) if Dir.exists?(dir)
-  end
 
 end

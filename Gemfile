@@ -6,7 +6,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -38,11 +38,13 @@ gem 'mongoid'
 gem 'mongoid_slug'
 gem 'mongoid-history'
 
-gem 'daemons'
-gem 'delayed_job_mongoid'
+ gem 'daemons'
+ gem 'delayed_job_mongoid'
 
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'rest-client'
+gem 'carrierwave-aliyun'
 
 gem 'puma'
