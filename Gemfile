@@ -38,8 +38,8 @@ gem 'mongoid'
 gem 'mongoid_slug'
 gem 'mongoid-history'
 
- gem 'daemons'
- gem 'delayed_job_mongoid'
+ # gem 'daemons'
+ # gem 'delayed_job_mongoid'
 
 gem 'mini_magick'
 gem 'carrierwave'
