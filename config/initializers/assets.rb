@@ -8,4 +8,4 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 # Rails.application.config.assets.precompile += [/(.*)\.gif/]
-Rails.application.config.assets.precompile += %w( jquery-fileupload-4-yii.js codemirror-4-yii.js )
+Rails.application.config.assets.precompile += %w( jquery-fileupload-4-yii.js post-editor-4-yii.js )

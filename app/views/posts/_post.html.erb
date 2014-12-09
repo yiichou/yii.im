@@ -20,7 +20,7 @@
         <hr class="double-line" />
         <ul class="content assets-list">
           <% post.assets.each do |asset| %>
-            <li><%= link_to asset.file_name, asset_path(asset, :version => 'origin') %> <%= "(#{number_to_human_size(asset.file_size)})" %></li>
+            <li><%= link_to asset.file_name, "http://#{Preference.aliyun_oss.stc}/#{asset.file.current_path}" %> <%= "(#{number_to_human_size(asset.file_size)})" %></li>
           <% end %>
         </ul>
       <% end %>
