@@ -20,6 +20,8 @@
     Work: Lead Product Designer @ http://kyruus.com
 
     */
+
+/* Move it to fonts.css that is stored in Aliyun-OSS
 @font-face {
   font-family: 'FontAwesome';
   src: url('/fonts/fontawesome-webfont.eot');
@@ -29,6 +31,8 @@
   font-weight: normal;
   font-style: normal;
 }
+*/
+
 /*  Font Awesome styles
     ------------------------------------------------------- */
 /* includes sprites.less reset */
