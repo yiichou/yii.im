@@ -2,7 +2,7 @@
   <div class="footer-info">
     <p>
     <%= link_to raw("<i class='icon-envelope'></i> #{Preference.email.default}"), "mailto:#{Preference.email.default}?subject=#{@post.title rescue nil}" %>
-    {<%= link_to "Ruby #{RUBY_VERSION} on Rails #{Rails.version}, Mongoid, Unicorn, Nginx, Markdown", "https://github.com/IvanChou/yii.im", :title => "Source code for this site" %>}
+    {<%= link_to "Ruby #{RUBY_VERSION} on Rails #{Rails.version}, Mongoid, Puma, Nginx, Markdown", "https://github.com/IvanChou/yii.im", :title => "Source code for this site" %>}
     {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
     </p>
   </div>
