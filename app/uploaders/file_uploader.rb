@@ -3,7 +3,7 @@
 class FileUploader < CarrierWave::Uploader::Base  
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick if Rails.env.development?
   
   include CarrierWave::MimeTypes
 
@@ -28,9 +28,11 @@ class FileUploader < CarrierWave::Uploader::Base
   #   process :resize_to_limit => [854, 480]
   # end
 
-  # version :thumb do
-  #   process :resize_to_fill => [80, 80]
-  # end
+  if Rails.env.development?
+    version :thumb do
+      process :resize_to_fill => [80, 80]
+    end
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

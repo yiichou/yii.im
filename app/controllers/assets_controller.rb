@@ -68,10 +68,15 @@ class AssetsController < ApplicationController
 
     if asset.content_type.include? "image"
       url = "http://#{Preference.aliyun_oss.img}/#{asset.file.current_path}"
-      thumbnail_url = "#{url}@!thumbnail"
+      thumbnail_url = "#{url}@!thumbnail"      
     else
       url = url = "http://#{Preference.aliyun_oss.stc}/#{asset.file.current_path}"
       thumbnail_url = asset_url(asset)
+    end
+    
+    if Rails.env.development?
+      url = asset_url(asset)
+      thumbnail_url = asset_url(asset, :version => :thumb)
     end
 
     {

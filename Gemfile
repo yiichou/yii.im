@@ -44,7 +44,10 @@ gem 'mongoid-history'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
-gem 'rest-client'
-gem 'carrierwave-aliyun'
+
+group :production do
+  gem 'rest-client'
+  gem 'carrierwave-aliyun' 
+end
 
 gem 'puma'
