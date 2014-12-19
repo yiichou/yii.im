@@ -63,7 +63,7 @@ class PostsController < ApplicationController
       
       deled_tags = @post.tags_str.split(',') - post_params[:tags_str].split(',')
       
-      expire_fragment "post/#{post.id}/#{post.updated_at.to_i}"
+      expire_fragment "post/#{@post.id}/#{@post.updated_at.to_i}"
       
       if @post.update_attributes(post_params)
         @post.assets = Asset.find(params[:asset_ids] || [])
