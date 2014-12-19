@@ -1,4 +1,4 @@
-<%= cache "post/#{post.updated_at}", skip_digest: true do %>
+<%= cache "post/#{post.id}/#{post.updated_at.to_i}", skip_digest: true do %>
   <div class="post block">
     <h1 class="post-header block-header">
       <%= link_to post.title, post %>

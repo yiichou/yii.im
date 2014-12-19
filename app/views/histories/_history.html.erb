@@ -1,4 +1,4 @@
-<%= cache "history/#{history.updated_at}", skip_digest: true do %>
+<%= cache "history/#{@post.id}/#{history.updated_at}", skip_digest: true do %>
   <div class="block">
     <h1 class="diff-header block-header">
       <%= link_to timeago(history.created_at), [@post, history] %>
