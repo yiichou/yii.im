@@ -22,6 +22,7 @@
 /log/*.log
 /public/uploads/
 /public/assets/
+/public/yii.im/
 /tmp
 
 # Ignore other unneeded files.

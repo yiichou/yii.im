@@ -48,6 +48,8 @@ gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 group :production do
   gem 'rest-client'
   gem 'carrierwave-aliyun' 
+  
+  gem 'redis-rails'
 end
 
 gem 'puma'
