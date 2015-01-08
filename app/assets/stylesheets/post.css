@@ -13,6 +13,7 @@
   font-size: 27px;
   color: #CCCCCC;
   font-weight: bold;
+  white-space: nowrap;
   padding: 2px 0;
 }
 
