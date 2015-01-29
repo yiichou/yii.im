@@ -31,8 +31,9 @@ class Post
   end
 
   def tags_str=(str)
+    self.tags = []  # todo: 没有这一句，保存文章是会把没变动的 tag 关联删除，很奇怪啊~ 
     self.tags = str.split(',').uniq.inject([]) { |ts, t|
-      tag = Tag.where(title: /^#{t}$/i).first || Tag.new(title: t)
+      tag = Tag.find_or_create_by(title: t)
       ts << tag
     }
   end
