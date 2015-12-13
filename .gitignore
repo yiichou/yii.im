@@ -19,7 +19,7 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
+/log
 /public/uploads/
 /public/assets/
 /public/yii.im/
@@ -35,4 +35,3 @@ doc/
 .idea
 .secret
 .DS_Store
-*/.DS_Store

@@ -1,14 +1,5 @@
 en:
   domain: yii.im
-  session_key: _yii_im_session_mem_cache_secure
-
-  memcache:
-    servers:
-      - 127.0.0.1
-    options:
-      namespace: _yii_im_cache_dalli
-      expires_in: <%= 1.day %>
-      compress: true
 
   html:
     title: yii.im
