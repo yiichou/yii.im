@@ -1,18 +1,25 @@
-#!/usr/bin/env puma
+root = File.expand_path('../../', __FILE__)
+log_dir = File.join(root, 'log')
+tmp_dir = File.join(root, 'tmp')
+puma_env = "production"
 
-environment "production"
 
-daemonize true
+directory root
+rackup File.join(root, 'config.ru')
+environment puma_env
+ENV['SECRET_KEY_BASE'] = 'VBmrotiIYLCvAs0Dca9jh1Nw5H3OX78nQRUgGdMJP62fTkpq4KEWZSFbzuyxel'
 
-wd          = File.expand_path('../../', __FILE__)
-tmp_path    = File.join(wd, 'log')
-Dir.mkdir(tmp_path) unless File.exist?(tmp_path)
+tag "yii.im"
 
-pidfile          File.join(tmp_path, 'puma.pid')
-state_path       File.join(tmp_path, 'puma.state')
-stdout_redirect  File.join(tmp_path, 'puma.out.log'), File.join(tmp_path, 'puma.err.log'), true
-
-threads 0,16
-workers 0
+pidfile File.join(tmp_dir, 'pids', 'puma.pid')
+state_path File.join(tmp_dir, 'pids', 'puma.state')
+stdout_redirect "#{log_dir}/puma.log", "#{log_dir}/#{puma_env}_error.log", true
 
 bind  "unix:///var/run/yii.im.socket"
+
+worker_timeout 5
+threads 4,8
+workers 4
+
+daemonize true
+preload_app!
