@@ -7,7 +7,7 @@ PID_DIR=$APP_ROOT/tmp/pids
 PID=$PID_DIR/puma.pid
 STATE=$PID_DIR/puma.state
 
-START_CMD="cd $APP_ROOT; bundle exec puma -q -C $PID_DIR/config/puma.rb --daemon"
+START_CMD="cd $APP_ROOT; bundle exec puma -q -C $APP_ROOT/config/puma.rb --daemon"
 RESTART_CMD="cd $APP_ROOT; bundle exec pumactl -S $STATE phased-restart"
 AS_USER=live
 set -u

@@ -18,8 +18,8 @@ stdout_redirect "#{log_dir}/puma.log", "#{log_dir}/#{puma_env}_error.log", true
 bind  "unix:///var/run/yii.im.socket"
 
 worker_timeout 5
-threads 4,8
-workers 4
+threads 1,6
+workers 2
 
 daemonize true
 preload_app!
