@@ -1,6 +1,6 @@
 baseurl = "http://www.yii.im/"
 languageCode = "en-us"
-title = "iChou's Hugo Site"
+title = "yii.im"
 
 [params]
   Subtitle = "I am iChou."
