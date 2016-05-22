@@ -1,7 +1,0 @@
-en:
-  flash:
-    posts:
-      success:
-        create: "Successfully create a new post."
-        update: "Successfully update the post."
-        destroy: "Successfully delete the post."

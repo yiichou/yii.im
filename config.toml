@@ -1,0 +1,12 @@
+baseurl = "http://yii.im/"
+languageCode = "en-us"
+title = "iChou's Hugo Site"
+
+[params]
+  Subtitle = "I am iChou."
+  GithubID = "Your Github ID"
+  TwitterID = "Your Twitter ID"
+  AnalyticsID = "Your Google Analytics tracking code"
+  Summary = false  # takes true or false
+  Content = false  # takes true or false
+  # if both are set to true, summary is shown.
