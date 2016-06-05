@@ -1,0 +1,16 @@
+<header class="yii">
+  <nav>
+    <div class="nav-center">
+      <span>yii.im</span>
+    </div>
+    <ul>
+      <li><a href="{{ .Site.BaseURL }}">/home/yii.im</a></li>
+      {{ range .Site.Menus.main }}
+      <li><a href="{{ .URL }}">~/{{ .Name }}</a></li>
+      {{end}}
+  
+      <li class="pull-right"><a href="{{ .RSSlink }}"><i class="fa fa-rss"></i></a></li>
+    </ul>
+    <a class="nav-btn" href="#" style="display:none"></a>
+  </nav>
+</header>

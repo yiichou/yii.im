@@ -5,8 +5,9 @@ title = "yii.im"
 [params]
   Subtitle = "I am iChou."
   GithubID = "IvanChou"
-  TwitterID = "Your Twitter ID"
-  AnalyticsID = "Your Google Analytics tracking code"
+  TwitterID = "IamIchou"
+  GoogleplusID = "106025147843011494846"
+  AnalyticsID = "UA-57408564-1"
   Summary = false  # takes true or false
   Content = false  # takes true or false
   # if both are set to true, summary is shown.
@@ -17,3 +18,7 @@ title = "yii.im"
     name = "Post"
     weight = 0
     url = "/post"
+  [[menu.main]]
+    name = "About"
+    weight = 1
+    url = "/about"

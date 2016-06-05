@@ -1,0 +1,189 @@
+body {
+  margin: 0;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', Arial, Serif;
+}
+
+.yii {
+  h1,h2,h3,h4,h5,h6 {
+    font-family: 'Russo One',Ubuntu,'Lucida Grande','Lucida Sans Unicode','Helvetica Neue','DejaVu Sans',Verdana,'Microsoft YaHei','Hiragino Sans GB','WenQuanYi Micro Hei',sans-serif;
+    font-weight: normal
+  }
+
+  em {
+    font-style: normal;
+    font-size: 12px;
+    padding: 0 2px;
+    background: #dfc
+  }
+
+  ul,ol {
+    margin: 0;
+    padding: 0;
+    list-style: none
+  }
+
+  a {
+    color: #005580;
+    text-decoration: none
+  }
+
+  a:hover {
+    color: #08c
+  }
+
+  img,video {
+    max-width: 100%
+  }
+
+  .pull-right {
+    float: right;
+  }
+
+  .main {
+    padding: 64px 16px
+  }
+
+  footer.yii {
+    position: absolute;
+  }
+}
+
+header.yii {
+  border-bottom: 1px solid #000;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  height: 27px;
+  overflow: hidden;
+  font-family: 'Droid Sans Mono','Ubuntu Mono',Monaco,'Courier New','DejaVu Sans Mono','Bitstream Vera Sans Mono',monospace;
+  font-size: 14px;
+  font-weight: bold;
+  background: #2d2d2d;
+
+  nav {
+    padding: 0 8px
+  }
+
+  .nav-center {
+    text-align: center;
+    line-height: 27px;
+    color: #000;
+    text-transform: uppercase;
+    text-shadow: rgba(255,255,255,0.0980392) 0 1px 0,rgba(255,255,255,0.121569) 0 0 30px
+  }
+
+  ul {
+    margin-top: -27px
+  }
+
+  ul li {
+    float: left
+  }
+
+  a {
+    color: #bbb;
+    line-height: 27px;
+    padding: 0 8px
+  }
+
+  a:hover, .current a {
+    color: #fff;
+    text-decoration: none
+  }
+}
+
+footer.yii {
+  box-sizing: border-box;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 64px 16px 16px;
+  color: #ccc;
+
+  a {
+    color: #ccc;
+  }
+
+  .footer-info {
+    border-top: 6px double #f2f2f2;
+    padding-top: 4px
+  }
+
+}
+
+.user-profile {
+  box-sizing: border-box;
+  font-family: 'Droid Sans Mono','Ubuntu Mono',Monaco,'Courier New','DejaVu Sans Mono','Bitstream Vera Sans Mono',monospace;
+  width: 100%;
+  padding: 0 16px;
+  overflow: hidden;
+  color: #888;
+  text-align: center
+}
+
+.user-profile .user-avatar {
+  margin: 16px 0
+}
+
+.user-profile .user-avatar img {
+  width: 256px;
+  height: 256px
+}
+
+.user-profile .user-socials a {
+  color: #a7a7a7;
+  font-size: 1.25em;
+  line-height: 1.5em;
+  text-decoration: none
+}
+
+.user-profile .user-socials a:hover {
+  color: #777
+}
+
+.user-profile .user-motivation {
+  max-width: 900px;
+  font-size: 64px;
+  line-height: 66px;
+  margin: 16px auto
+}
+
+@media(max-width:480px) {
+  .user-profile .user-avatar img {
+    width: 128px;
+    height: 128px
+  }
+
+  .user-profile .user-motivation {
+    font-size: 48px;
+    line-height: 50px
+  }
+}
+
+@media(max-height:480px) {
+  .user-profile .user-avatar {
+    margin: 0
+  }
+}
+
+.clearfix::before,.clearfix::after {
+  display: table;
+  content: "";
+  line-height: 0
+}
+
+.clearfix::after {
+  clear: both
+}
+
+/* hack theme slim */
+
+.container {
+  max-width: 100%;
+}
+
+.content {
+  margin: 80px auto 0;
+  max-width: 42em;
+}
