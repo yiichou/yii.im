@@ -1,50 +1,34 @@
 body {
   margin: 0;
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', Arial, Serif;
-}
+  font-size: 100%;
+  font-weight: 400;
+  line-height: 1.85;
+  letter-spacing: 0.01rem; }
 
 .yii h1, .yii h2, .yii h3, .yii h4, .yii h5, .yii h6 {
   font-family: 'Russo One',Ubuntu,'Lucida Grande','Lucida Sans Unicode','Helvetica Neue','DejaVu Sans',Verdana,'Microsoft YaHei','Hiragino Sans GB','WenQuanYi Micro Hei',sans-serif;
-  font-weight: normal;
-}
-
+  font-weight: normal; }
 .yii em {
   font-style: normal;
   font-size: 12px;
   padding: 0 2px;
-  background: #dfc;
-}
-
+  background: #dfc; }
 .yii ul, .yii ol {
   margin: 0;
   padding: 0;
-  list-style: none;
-}
-
+  list-style: none; }
 .yii a {
   color: #005580;
-  text-decoration: none;
-}
-
+  text-decoration: none; }
 .yii a:hover {
-  color: #08c;
-}
-
+  color: #08c; }
 .yii img, .yii video {
-  max-width: 100%;
-}
-
+  max-width: 100%; }
 .yii .pull-right {
-  float: right;
-}
-
+  float: right; }
 .yii .main {
-  padding: 64px 16px;
-}
-
-.yii footer.yii {
-  position: absolute;
-}
+  padding: 64px 16px; }
 
 header.yii {
   border-bottom: 1px solid #000;
@@ -57,39 +41,24 @@ header.yii {
   font-family: 'Droid Sans Mono','Ubuntu Mono',Monaco,'Courier New','DejaVu Sans Mono','Bitstream Vera Sans Mono',monospace;
   font-size: 14px;
   font-weight: bold;
-  background: #2d2d2d;
-}
-
-header.yii nav {
-  padding: 0 8px;
-}
-
-header.yii .nav-center {
-  text-align: center;
-  line-height: 27px;
-  color: #000;
-  text-transform: uppercase;
-  text-shadow: rgba(255, 255, 255, 0.0980392) 0 1px 0, rgba(255, 255, 255, 0.121569) 0 0 30px;
-}
-
-header.yii ul {
-  margin-top: -27px;
-}
-
-header.yii ul li {
-  float: left;
-}
-
-header.yii a {
-  color: #bbb;
-  line-height: 27px;
-  padding: 0 8px;
-}
-
-header.yii a:hover, header.yii .current a {
-  color: #fff;
-  text-decoration: none;
-}
+  background: #2d2d2d; }
+  header.yii nav {
+    padding: 0 8px; }
+  header.yii .nav-center {
+    text-align: center;
+    line-height: 27px;
+    color: #000;
+    text-transform: uppercase;
+    text-shadow: rgba(255, 255, 255, 0.09804) 0 1px 0, rgba(255, 255, 255, 0.12157) 0 0 30px; }
+  header.yii ul li {
+    float: left; }
+  header.yii a {
+    color: #bbb;
+    line-height: 27px;
+    padding: 0 8px; }
+  header.yii a:hover, header.yii .current a {
+    color: #fff;
+    text-decoration: none; }
 
 footer.yii {
   box-sizing: border-box;
@@ -97,17 +66,12 @@ footer.yii {
   bottom: 0;
   width: 100%;
   padding: 64px 16px 16px;
-  color: #ccc;
-}
-
-footer.yii a {
-  color: #ccc;
-}
-
-footer.yii .footer-info {
-  border-top: 6px double #f2f2f2;
-  padding-top: 4px;
-}
+  color: #ccc; }
+  footer.yii a {
+    color: #ccc; }
+  footer.yii .footer-info {
+    border-top: 6px double #f2f2f2;
+    padding-top: 4px; }
 
 .user-profile {
   box-sizing: border-box;
@@ -116,69 +80,59 @@ footer.yii .footer-info {
   padding: 0 16px;
   overflow: hidden;
   color: #888;
-  text-align: center;
-}
+  text-align: center; }
 
 .user-profile .user-avatar {
-  margin: 16px 0;
-}
+  margin: 16px 0; }
 
 .user-profile .user-avatar img {
   width: 256px;
-  height: 256px;
-}
+  height: 256px; }
 
 .user-profile .user-socials a {
   color: #a7a7a7;
   font-size: 1.25em;
   line-height: 1.5em;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 .user-profile .user-socials a:hover {
-  color: #777;
-}
+  color: #777; }
 
 .user-profile .user-motivation {
   max-width: 900px;
   font-size: 64px;
   line-height: 66px;
-  margin: 16px auto;
-}
+  margin: 16px auto; }
 
 @media (max-width: 480px) {
   .user-profile .user-avatar img {
     width: 128px;
-    height: 128px;
-  }
+    height: 128px; }
+
   .user-profile .user-motivation {
     font-size: 48px;
-    line-height: 50px;
-  }
-}
-
+    line-height: 50px; } }
 @media (max-height: 480px) {
   .user-profile .user-avatar {
-    margin: 0;
-  }
-}
-
+    margin: 0; } }
+@media (min-height: 960px) {
+  .yii footer {
+    position: absolute; } }
 .clearfix::before, .clearfix::after {
   display: table;
   content: "";
-  line-height: 0;
-}
+  line-height: 0; }
 
 .clearfix::after {
-  clear: both;
-}
+  clear: both; }
 
 /* hack theme slim */
 .container {
-  max-width: 100%;
-}
+  max-width: 100%; }
 
 .content {
   margin: 80px auto 0;
-  max-width: 42em;
-}
+  padding: 0 .85em;
+  max-width: 42em; }
+
+/*# sourceMappingURL=yii.css.map */
