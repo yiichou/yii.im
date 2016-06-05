@@ -115,7 +115,7 @@ footer.yii {
 @media (max-height: 480px) {
   .user-profile .user-avatar {
     margin: 0; } }
-@media (min-height: 960px) {
+@media (min-height: 800px) {
   .yii footer {
     position: absolute; } }
 .clearfix::before, .clearfix::after {
