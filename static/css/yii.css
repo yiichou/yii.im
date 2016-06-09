@@ -144,29 +144,30 @@ footer.yii {
   top: 1.35rem;
   left: -30px;
   z-index: -1; }
-
 .post-title:after {
   bottom: 2.55rem;
   right: 0;
   left: auto;
   top: auto;
   width: 98%; }
-
 .post-title a {
   line-height: 1.8; }
-
-.post-title a:before {
-  top: 0.9rem; }
-
-.post-title a:after {
-  top: auto;
-  bottom: 0.7rem; }
+  .post-title a:before {
+    top: 0.9rem; }
+  .post-title a:after {
+    top: auto;
+    bottom: 0.7rem; }
 
 .post-date {
   margin-top: -1rem; }
 
-@media (max-width: 480px) {
+@media (max-width: 736px) {
   body {
-    font-size: 14px; } }
+    font-size: 14px; }
+
+  .post-title a {
+    font-size: 80%; }
+  .post-title:before, .post-title:after, .post-title a:before, .post-title a:after {
+    content: none; } }
 
 /*# sourceMappingURL=yii.css.map */
