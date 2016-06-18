@@ -198,6 +198,8 @@ footer.yii {
 }
 
 .post-title {
+  position: relative;
+  
   &:before {
     content: '';
     display: block;
@@ -210,7 +212,7 @@ footer.yii {
   }
   
   &:after {
-    bottom: 2.55rem;
+    bottom: 1.25rem;
     right: 0;
     left: auto;
     top: auto;
