@@ -285,7 +285,7 @@ ngrok -config path/to/ngrok.yml -proto=tcp 22
 连接状态：
 
 ```
-ngrok                                                   (Ctrl+C to quit)
+ngrok                                               (Ctrl+C to quit)
 
 Tunnel Status                 online
 Version                       1.7/1.7
