@@ -225,7 +225,7 @@ ngrok 在进行 TCP 连接的时候，是通过额外开启一个端口的方式
 
 由于使用的是 CA 证书，所以不需要自行编译客户端，可以网上自行下载各种 ngrok v1.7 的客户端，理论上都是可用的（有的似乎对客户端做了修改，或许有其它未知原因而无法使用，请自行略过）
 
-资源随后放出 ㄟ( ▔, ▔ )ㄏ
+资源随后放出 ㄟ( ▔, ▔ )ㄏ  => http://pan.baidu.com/s/1b548fO
 
 MAC & Linux 下，可以将 ngrok 放到 `/usr/local/bin/` 下备用
 
@@ -249,7 +249,7 @@ trust_host_root_certs: true
 #### Http 连接
 
 ```bash
-ngrok -config path/to/ngrok.yml -proto=http -subdomain pub 3000
+ngrok -config=path/to/ngrok.yml -proto=http -subdomain pub 3000
 ```
 
 可以看到
@@ -279,7 +279,7 @@ Avg Conn Time                 0.00ms
 不指定端口 
 
 ```bash
-ngrok -config path/to/ngrok.yml -proto=tcp 22
+ngrok -config=path/to/ngrok.yml -proto=tcp 22
 ```
 
 连接状态：
@@ -289,7 +289,7 @@ ngrok                                               (Ctrl+C to quit)
 
 Tunnel Status                 online
 Version                       1.7/1.7
-Forwarding                    tcp://via.ichou.cn:17476 -> 127.0.0.1:22
+Forwarding                    tcp://yii.im:17476 -> 127.0.0.1:22
 Web Interface                 127.0.0.1:4040
 # Conn                        0
 Avg Conn Time                 0.00ms
@@ -300,5 +300,11 @@ Avg Conn Time                 0.00ms
 盗用 [Jerry Qu](https://imququ.com/post/self-hosted-ngrokd.html) 的一句话
 
 > 实际上，由于 ngrok 可以转发 TCP，所以还有很多玩法，原理都一样，这里就不多写了。
+
+##  -- PS --
+
+文中使用的 yii.im 只是为了说明使用的域名，这个域名下并没有搭 ngork 服务 
+
+(/= _ =)/~┴┴ ╮(╯▽╰)╭
 
 
