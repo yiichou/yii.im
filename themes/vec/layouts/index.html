@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <title>{{ .Site.Title }}</title>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="keywords" content="{{ .Site.Params.Keywords }}">
+  <meta name="description" content="{{ .Site.Params.Description }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  <link href="{{ .Site.BaseURL }}css/vec.css" rel="stylesheet" />
+</head>
+
+<body>
+  {{ partial "header.html" . }}
+  
+  <section class="user-profile">
+    <figure class="user-avatar">
+      <img alt="avater" src="{{ .Site.Params.Avater }}">
+      <figcaption class="user-socials">
+        
+        {{ with .Site.Params.TwitterID }}
+        <a href="https://twitter.com/{{.}}" title="Twitter"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+        {{ end }}
+        
+        {{ with .Site.Params.GoogleplusID }}
+        <a href="https://plus.google.com/{{.}}/about" title="Google+"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
+        {{ end }}
+        
+        {{ with .Site.Params.FacebookID }}
+        <a href="https://facebook.com/{{.}}" title="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+        {{ end }}
+        
+        {{ with .Site.Params.GithubID }}
+        <a href="https://github.com/{{.}}" title="GitHub"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+        {{ end }}
+        
+        {{ with .Site.Params.LinkedInID }}
+        <a href="http://linkedin.com/in/{{.}}" title="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+        {{ end }}
+        
+      </figcaption>
+    </figure>
+    <h2 class="user-motivation">{{ .Site.Params.SelfIntro }}</h2>
+  </section>
+  
+  {{ partial "footer.html" . }}
+
+</body>
+</html>

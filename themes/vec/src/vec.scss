@@ -1,0 +1,239 @@
+@import url(//fonts.googleapis.com/css?family=Droid+Sans+Mono|Russo+One|Source+Sans+Pro:400,700);
+@import url(//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css);
+
+body {
+  margin: 0;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', Arial, Serif;
+  font-size: 100%;
+  letter-spacing: .01rem;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Russo One','Lucida Grande','Lucida Sans Unicode','Helvetica Neue','Microsoft YaHei',sans-serif;
+  font-weight: normal
+}
+
+ul,ol {
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+a {
+  color: #005580;
+  text-decoration: none;
+	
+	&:hover {
+		color: #08c;
+	}
+}
+
+img,video {
+  max-width: 100%;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.clearfix::before,.clearfix::after {
+  display: table;
+  content: "";
+  line-height: 0
+}
+
+.clearfix::after {
+  clear: both
+}
+
+/* ============== Header ============== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 1.68rem;
+  font-family: 'Droid Sans Mono','Ubuntu Mono',Monaco,monospace;
+  font-size: .875rem;
+  font-weight: bold;
+  background: #2d2d2d;
+  border-bottom: 1px solid #000;
+  z-index: 99;
+
+  nav {
+    padding: 0 8px
+  }
+
+  .nav-center {
+    text-align: center;
+    line-height: 1.68rem;
+    color: #000;
+    text-transform: uppercase;
+    text-shadow: rgba(255,255,255,0.0980392) 0 1px 0,rgba(255,255,255,0.121569) 0 0 30px
+  }
+
+  a {
+    color: #bbb;
+    line-height: 1.68rem;
+    padding: 0 .5rem
+  }
+
+  a:hover, .current a {
+    color: #fff;
+  }
+}
+
+
+/* ============== Footer ============== */
+footer {
+  box-sizing: border-box;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 3rem 1rem 1rem;
+  color: #ccc;
+
+  a {
+    color: #ccc;
+  }
+
+  .footer-info {
+    border-top: .4rem double #f2f2f2;
+    padding-top: .25rem
+  }
+}
+
+@media(min-height:700px) {
+  footer {
+    position: absolute;
+  }
+}
+
+/* ============== Index ============== */
+
+.user-profile {
+  width: 100%;
+  margin-top: 4rem;
+  padding: 1rem;
+  font-family: 'Droid Sans Mono','Ubuntu Mono',Monaco,monospace;
+  color: #888;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.user-profile .user-avatar {
+  margin: 1rem 0
+}
+
+.user-profile .user-avatar img {
+  width: 16rem;
+  height: 16rem
+}
+
+.user-profile .user-socials a {
+  color: #a7a7a7;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  text-decoration: none
+}
+
+.user-profile .user-socials a:hover {
+  color: #777
+}
+
+.user-profile .user-motivation {
+  max-width: 56rem;
+  font-size: 4rem;
+  line-height: 4.125rem;
+  margin: 1rem auto
+}
+
+@media(max-width:480px) {
+  .user-profile .user-avatar img {
+    width: 8rem;
+    height: 8rem
+  }
+
+  .user-profile .user-motivation {
+    font-size: 2.625rem;
+    line-height: 3.125rem
+  }
+}
+
+@media(max-height:480px) {
+  .user-profile .user-avatar {
+    margin: 0
+  }
+}
+
+/* ============== List ============== */
+
+.container {
+  max-width: 100%;
+}
+
+.content {
+  margin: 80px auto 0;
+  padding: 0 .85em;
+  max-width: 42em;
+}
+
+.post-title {
+  position: relative;
+  
+  &:before {
+    content: '';
+    display: block;
+    border-top: 1px solid #ccc;
+    width: 40px;
+    position: absolute;
+    top: 1.35rem;
+    left: -30px;
+    z-index: -1;
+  }
+  
+  &:after {
+    bottom: 1.25rem;
+    right: 0;
+    left: auto;
+    top: auto;
+    width: 98%;
+  }
+  
+  a {
+    line-height: 1.8;
+    
+    &:before {
+      top: 0.9rem;
+    }
+    
+    &:after {
+      top: auto;
+      bottom: 0.7rem;
+    }
+  }
+}
+
+.post-date {
+  margin-top: -1rem;
+}
+
+@media(max-width:736px) {
+  body {
+    font-size: 14px
+  }
+  
+  .post-title {
+    a {
+       font-size: 80%;
+     }
+     
+     &:before, &:after, a:before, a:after {
+       content: none;
+     }
+  }
+}
