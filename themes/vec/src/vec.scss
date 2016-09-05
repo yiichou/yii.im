@@ -182,46 +182,6 @@ footer {
   max-width: 42em;
 }
 
-.post-title {
-  position: relative;
-  
-  &:before {
-    content: '';
-    display: block;
-    border-top: 1px solid #ccc;
-    width: 40px;
-    position: absolute;
-    top: 1.35rem;
-    left: -30px;
-    z-index: -1;
-  }
-  
-  &:after {
-    bottom: 1.25rem;
-    right: 0;
-    left: auto;
-    top: auto;
-    width: 98%;
-  }
-  
-  a {
-    line-height: 1.8;
-    
-    &:before {
-      top: 0.9rem;
-    }
-    
-    &:after {
-      top: auto;
-      bottom: 0.7rem;
-    }
-  }
-}
-
-.post-date {
-  margin-top: -1rem;
-}
-
 @media(max-width:736px) {
   body {
     font-size: 14px

@@ -8,5 +8,6 @@ doc/
 .secret
 .DS_Store
 .MWebMetaData
+.sass-cache
 
 /content/post/media
