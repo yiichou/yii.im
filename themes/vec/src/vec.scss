@@ -51,6 +51,11 @@ img,video {
   margin: 6rem auto 0;
   padding: 0 1.85rem;
   max-width: 40rem;
+  
+  @media (max-width: 480px) {
+    margin: 4rem auto 0;
+    padding: 0 1rem;
+  }
 }
 
 /* ============== Header ============== */
@@ -225,7 +230,7 @@ footer {
       }
       
       ol {
-        margin-left: 2rem;
+        margin-left: 0;
       }
     }
   }

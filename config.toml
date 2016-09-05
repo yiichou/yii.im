@@ -13,9 +13,6 @@ title = "yii.im"
   TwitterID = "IamIchou"
   GoogleplusID = "106025147843011494846"
   AnalyticsID = "UA-57408564-1"
-  Summary = false  # takes true or false
-  Content = false  # takes true or false
-  # if both are set to true, summary is shown.
   
 [menu]
   # Shown in the side menu.

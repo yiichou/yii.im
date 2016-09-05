@@ -98,6 +98,10 @@ img, video {
   margin: 6rem auto 0;
   padding: 0 1.85rem;
   max-width: 40rem; }
+  @media (max-width: 480px) {
+    .content {
+      margin: 4rem auto 0;
+      padding: 0 1rem; } }
 
 /* ============== Header ============== */
 header {
@@ -223,7 +227,7 @@ footer {
         text-align: left;
         margin-bottom: 1rem; }
       .posts .posts-archive ol {
-        margin-left: 2rem; } }
+        margin-left: 0; } }
 
 /* ============== Page ============== */
 .post {
