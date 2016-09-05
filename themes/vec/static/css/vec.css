@@ -1,14 +1,75 @@
 @import url(//fonts.googleapis.com/css?family=Droid+Sans+Mono|Russo+One|Source+Sans+Pro:400,700);
 @import url(//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css);
+/**
+ * GitHub Gist Theme
+ * Author : Louis Barranqueiro - https://github.com/LouisBarranqueiro
+ */
+.hljs {
+  display: block;
+  background: white;
+  padding: 0.5em;
+  color: #333333;
+  overflow-x: auto; }
+
+.hljs-comment,
+.hljs-meta {
+  color: #969896; }
+
+.hljs-string,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-strong,
+.hljs-emphasis,
+.hljs-quote {
+  color: #df5000; }
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type {
+  color: #a71d5d; }
+
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-attribute {
+  color: #0086b3; }
+
+.hljs-section,
+.hljs-name {
+  color: #63a35c; }
+
+.hljs-tag {
+  color: #333333; }
+
+.hljs-title,
+.hljs-attr,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #795da3; }
+
+.hljs-addition {
+  color: #55a532;
+  background-color: #eaffea; }
+
+.hljs-deletion {
+  color: #bd2c00;
+  background-color: #ffecec; }
+
+.hljs-link {
+  text-decoration: underline; }
+
 body {
   margin: 0;
-  font-family: 'Source Sans Pro', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', Arial, Serif;
+  font-family: 'Source Sans Pro', 'PingFang SC', 'Microsoft YaHei', Arial, Serif;
   font-size: 100%;
   letter-spacing: .01rem; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Russo One','Lucida Grande','Lucida Sans Unicode','Helvetica Neue','Microsoft YaHei',sans-serif;
-  font-weight: normal; }
+  font-family: 'Russo One','PingFang SC', 'Microsoft YaHei','WenQuanYi Micro Hei', sans-serif;
+  font-weight: 700;
+  line-height: 1.25; }
 
 a {
   color: #005580;
@@ -44,7 +105,7 @@ header {
   top: 0;
   width: 100%;
   height: 1.75rem;
-  font-family: 'Droid Sans Mono','Ubuntu Mono',Monaco,monospace;
+  font-family: 'Droid Sans Mono','Monaco',monospace;
   font-size: .875rem;
   font-weight: bold;
   background: #2d2d2d;
@@ -55,13 +116,13 @@ header {
     padding: 0;
     list-style: none; }
   header nav {
-    padding: 0 8px; }
+    padding: 0 0.5rem; }
   header .nav-center {
     text-align: center;
     line-height: 1.75rem;
     color: #000;
     text-transform: uppercase;
-    text-shadow: rgba(255, 255, 255, 0.09804) 0 1px 0, rgba(255, 255, 255, 0.12157) 0 0 30px; }
+    text-shadow: rgba(255, 255, 255, 0.098) 0 1px 0, rgba(255, 255, 255, 0.12) 0 0 1.875rem; }
   header a {
     color: #bbb;
     line-height: 1.75rem;
@@ -91,7 +152,7 @@ footer {
   width: 100%;
   margin-top: 4rem;
   padding: 1rem;
-  font-family: 'Droid Sans Mono','Ubuntu Mono',Monaco,monospace;
+  font-family: 'Droid Sans Mono','Monaco',monospace;
   color: #888;
   text-align: center;
   box-sizing: border-box; }
@@ -138,7 +199,7 @@ footer {
       display: block;
       width: 8rem;
       float: left;
-      font-family: 'Russo One','Lucida Grande','Lucida Sans Unicode','Helvetica Neue','Microsoft YaHei',sans-serif;
+      font-family: 'Russo One','PingFang SC', 'Microsoft YaHei','WenQuanYi Micro Hei', sans-serif;
       font-size: 1.75rem;
       text-align: right;
       color: #CCCCCC;
@@ -165,5 +226,51 @@ footer {
         margin-left: 2rem; } }
 
 /* ============== Page ============== */
+.post {
+  color: #444;
+  line-height: 1.8; }
+  .post hr {
+    height: 0.25rem;
+    padding: 0;
+    margin: 1.5rem 0;
+    background-color: #e7e7e7;
+    border: 0; }
+  .post em {
+    text-emphasis-style: circle;
+    text-emphasis-position: under; }
+  .post code {
+    font-family: 'Source Code Pro', Monaco, Courier, monospace;
+    font-size: 0.85rem;
+    color: #555;
+    background-color: #f5f5f5;
+    border: 1px solid #eef;
+    border-radius: 3px;
+    padding: 0.2rem 0.5rem; }
+  .post pre {
+    display: block;
+    margin: 0 0 1rem 0;
+    padding: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5; }
+    .post pre code {
+      font-family: 'Source Code Pro', Menlo, Monaco, Courier, monospace;
+      font-size: 0.7rem;
+      padding: 0;
+      color: inherit;
+      border: none; }
+  .post blockquote {
+    padding: 0.5rem 1rem;
+    margin: 0.8rem 0;
+    color: #7a7a7a;
+    border-left: 0.3rem solid #e5e5e5; }
+    .post blockquote p:first-child {
+      margin-top: 0; }
+    .post blockquote p:last-child {
+      margin-bottom: 0; }
 
 /*# sourceMappingURL=vec.css.map */
