@@ -8,16 +8,9 @@ body {
   letter-spacing: .01rem;
 }
 
-
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Russo One','Lucida Grande','Lucida Sans Unicode','Helvetica Neue','Microsoft YaHei',sans-serif;
   font-weight: normal
-}
-
-ul,ol {
-  margin: 0;
-  padding: 0;
-  list-style: none
 }
 
 a {
@@ -51,18 +44,30 @@ img,video {
   clear: both
 }
 
+.content {
+  margin: 6rem auto 0;
+  padding: 0 1.85rem;
+  max-width: 40rem;
+}
+
 /* ============== Header ============== */
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 1.68rem;
+  height: 1.75rem;
   font-family: 'Droid Sans Mono','Ubuntu Mono',Monaco,monospace;
   font-size: .875rem;
   font-weight: bold;
   background: #2d2d2d;
   border-bottom: 1px solid #000;
   z-index: 99;
+  
+  ul,ol {
+    margin: 0;
+    padding: 0;
+    list-style: none
+  }
 
   nav {
     padding: 0 8px
@@ -70,7 +75,7 @@ header {
 
   .nav-center {
     text-align: center;
-    line-height: 1.68rem;
+    line-height: 1.75rem;
     color: #000;
     text-transform: uppercase;
     text-shadow: rgba(255,255,255,0.0980392) 0 1px 0,rgba(255,255,255,0.121569) 0 0 30px
@@ -78,7 +83,7 @@ header {
 
   a {
     color: #bbb;
-    line-height: 1.68rem;
+    line-height: 1.75rem;
     padding: 0 .5rem
   }
 
@@ -107,8 +112,8 @@ footer {
   }
 }
 
-@media(min-height:700px) {
-  footer {
+@media(min-height:44rem) {
+  #home footer {
     position: absolute;
   }
 }
@@ -172,28 +177,59 @@ footer {
 
 /* ============== List ============== */
 
-.container {
-  max-width: 100%;
-}
-
-.content {
-  margin: 80px auto 0;
-  padding: 0 .85em;
-  max-width: 42em;
-}
-
-@media(max-width:736px) {
-  body {
-    font-size: 14px
+.posts {
+  margin-left: -6rem;
+  
+  .posts-archive {
+    margin-bottom: 3rem;
+    
+    time {
+      display: block;
+      width: 8rem;
+      float: left;
+      font-family: 'Russo One','Lucida Grande','Lucida Sans Unicode','Helvetica Neue','Microsoft YaHei',sans-serif;
+      font-size: 1.75rem;
+      text-align: right;
+      color: #CCCCCC;
+      font-weight: bold;
+      white-space: nowrap;
+      line-height: 1.25rem;
+      padding: .125rem 0;
+    }
+    
+    ol {
+      margin-left: 12rem;
+      
+      li {
+        margin-bottom: .5rem;
+        list-style: decimal;
+      }
+    }
   }
   
-  .post-title {
-    a {
-       font-size: 80%;
-     }
-     
-     &:before, &:after, a:before, a:after {
-       content: none;
-     }
+  @media (max-width: 912px) {
+    margin-left: 0rem;
   }
+  
+  @media (max-width: 700px) {
+    margin-left: 0rem;
+    
+    .posts-archive {
+      time {
+        float: none;
+        text-align: left;
+        margin-bottom: 1rem;
+      }
+      
+      ol {
+        margin-left: 2rem;
+      }
+    }
+  }
+}
+
+/* ============== Page ============== */
+
+.post {
+  
 }

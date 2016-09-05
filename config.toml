@@ -20,10 +20,10 @@ title = "yii.im"
 [menu]
   # Shown in the side menu.
   [[menu.main]]
-    name = "Post"
+    name = "posts"
     weight = 0
-    url = "/post"
+    url = "/posts"
   [[menu.main]]
-    name = "About"
+    name = "about"
     weight = 1
     url = "/about"

@@ -10,11 +10,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Russo One','Lucida Grande','Lucida Sans Unicode','Helvetica Neue','Microsoft YaHei',sans-serif;
   font-weight: normal; }
 
-ul, ol {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-
 a {
   color: #005580;
   text-decoration: none; }
@@ -38,29 +33,38 @@ img, video {
 .clearfix::after {
   clear: both; }
 
+.content {
+  margin: 6rem auto 0;
+  padding: 0 1.85rem;
+  max-width: 40rem; }
+
 /* ============== Header ============== */
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 1.68rem;
+  height: 1.75rem;
   font-family: 'Droid Sans Mono','Ubuntu Mono',Monaco,monospace;
   font-size: .875rem;
   font-weight: bold;
   background: #2d2d2d;
   border-bottom: 1px solid #000;
   z-index: 99; }
+  header ul, header ol {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
   header nav {
     padding: 0 8px; }
   header .nav-center {
     text-align: center;
-    line-height: 1.68rem;
+    line-height: 1.75rem;
     color: #000;
     text-transform: uppercase;
     text-shadow: rgba(255, 255, 255, 0.09804) 0 1px 0, rgba(255, 255, 255, 0.12157) 0 0 30px; }
   header a {
     color: #bbb;
-    line-height: 1.68rem;
+    line-height: 1.75rem;
     padding: 0 0.5rem; }
   header a:hover, header .current a {
     color: #fff; }
@@ -79,8 +83,8 @@ footer {
     border-top: .4rem double #f2f2f2;
     padding-top: 0.25rem; }
 
-@media (min-height: 700px) {
-  footer {
+@media (min-height: 44rem) {
+  #home footer {
     position: absolute; } }
 /* ============== Index ============== */
 .user-profile {
@@ -126,21 +130,40 @@ footer {
   .user-profile .user-avatar {
     margin: 0; } }
 /* ============== List ============== */
-.container {
-  max-width: 100%; }
+.posts {
+  margin-left: -6rem; }
+  .posts .posts-archive {
+    margin-bottom: 3rem; }
+    .posts .posts-archive time {
+      display: block;
+      width: 8rem;
+      float: left;
+      font-family: 'Russo One','Lucida Grande','Lucida Sans Unicode','Helvetica Neue','Microsoft YaHei',sans-serif;
+      font-size: 1.75rem;
+      text-align: right;
+      color: #CCCCCC;
+      font-weight: bold;
+      white-space: nowrap;
+      line-height: 1.25rem;
+      padding: .125rem 0; }
+    .posts .posts-archive ol {
+      margin-left: 12rem; }
+      .posts .posts-archive ol li {
+        margin-bottom: .5rem;
+        list-style: decimal; }
+  @media (max-width: 912px) {
+    .posts {
+      margin-left: 0rem; } }
+  @media (max-width: 700px) {
+    .posts {
+      margin-left: 0rem; }
+      .posts .posts-archive time {
+        float: none;
+        text-align: left;
+        margin-bottom: 1rem; }
+      .posts .posts-archive ol {
+        margin-left: 2rem; } }
 
-.content {
-  margin: 80px auto 0;
-  padding: 0 .85em;
-  max-width: 42em; }
-
-@media (max-width: 736px) {
-  body {
-    font-size: 14px; }
-
-  .post-title a {
-    font-size: 80%; }
-  .post-title:before, .post-title:after, .post-title a:before, .post-title a:after {
-    content: none; } }
+/* ============== Page ============== */
 
 /*# sourceMappingURL=vec.css.map */
