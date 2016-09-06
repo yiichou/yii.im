@@ -3,15 +3,26 @@
 
 @import "github-gist.scss";
 
+$font-body: 'Source Sans Pro', 'PingFang SC', 'Microsoft YaHei', Arial, Serif;
+$font-title: 'Russo One', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+$font-code: 'Droid Sans Mono', Menlo, Monaco, monospace;
+
+html {
+  height:100%;
+}
+
 body {
   margin: 0;
-  font-family: 'Source Sans Pro', 'PingFang SC', 'Microsoft YaHei', Arial, Serif;
+  padding:0;
+  min-height:100%;
+  font-family: $font-body;
   font-size: 100%;
   letter-spacing: .01rem;
+  position:relative;
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Russo One','PingFang SC', 'Microsoft YaHei','WenQuanYi Micro Hei', sans-serif;
+  font-family: $font-title;
   font-weight: 700;
   line-height: 1.25;
 }
@@ -48,14 +59,18 @@ img,video {
 }
 
 .content {
-  margin: 6rem auto 0;
-  padding: 0 1.85rem;
+  margin: 0 auto;
+  padding: 6rem 1.85rem 8rem;
   max-width: 40rem;
-  
-  @media (max-width: 480px) {
-    margin: 4rem auto 0;
-    padding: 0 1rem;
-  }
+}
+
+@mixin awesome-fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ============== Header ============== */
@@ -64,7 +79,7 @@ header {
   top: 0;
   width: 100%;
   height: 1.75rem;
-  font-family: 'Droid Sans Mono','Monaco',monospace;
+  font-family: $font-code;
   font-size: .875rem;
   font-weight: bold;
   background: #2d2d2d;
@@ -103,11 +118,11 @@ header {
 
 /* ============== Footer ============== */
 footer {
-  box-sizing: border-box;
-  position: relative;
-  bottom: 0;
+  position: absolute;
   width: 100%;
-  padding: 3rem 1rem 1rem;
+  padding: 1rem;
+  bottom: 0;
+  box-sizing: border-box;
   color: #ccc;
 
   a {
@@ -120,19 +135,12 @@ footer {
   }
 }
 
-@media(min-height:44rem) {
-  #home footer {
-    position: absolute;
-  }
-}
-
 /* ============== Index ============== */
 
 .user-profile {
   width: 100%;
-  margin-top: 4rem;
-  padding: 1rem;
-  font-family: 'Droid Sans Mono','Monaco',monospace;
+  padding: 4rem 1rem 8rem;
+  font-family: '','Monaco',monospace;
   color: #888;
   text-align: center;
   box-sizing: border-box;
@@ -165,24 +173,6 @@ footer {
   margin: 1rem auto
 }
 
-@media(max-width:480px) {
-  .user-profile .user-avatar img {
-    width: 8rem;
-    height: 8rem
-  }
-
-  .user-profile .user-motivation {
-    font-size: 2.625rem;
-    line-height: 3.125rem
-  }
-}
-
-@media(max-height:480px) {
-  .user-profile .user-avatar {
-    margin: 0
-  }
-}
-
 /* ============== List ============== */
 
 .posts {
@@ -195,7 +185,7 @@ footer {
       display: block;
       width: 8rem;
       float: left;
-      font-family: 'Russo One','PingFang SC', 'Microsoft YaHei','WenQuanYi Micro Hei', sans-serif;
+      font-family: $font-title;
       font-size: 1.75rem;
       text-align: right;
       color: #CCCCCC;
@@ -256,7 +246,7 @@ footer {
   }
 
   code {
-    font-family: 'Source Code Pro', Monaco, Courier, monospace;
+    font-family: $font-code;
     font-size: 0.85rem;
     color: #555;
     background-color: #f5f5f5;
@@ -278,7 +268,6 @@ footer {
     background-color: #f5f5f5; 
     
     code {
-      font-family: 'Source Code Pro', Menlo, Monaco, Courier, monospace;
       font-size: 0.7rem;
       padding: 0;
       color: inherit;
@@ -300,5 +289,74 @@ footer {
       margin-bottom: 0;
     }
   }
-  
 }
+
+.pagination {
+  margin-top: 4rem;
+  padding: 1.6rem 0;
+  border-top: 1px solid #e7e7e7;
+  
+  a {
+    width: 45%;
+    position: relative;
+  }
+  
+  @mixin vertical-center {
+    position: absolute;
+    top: 50%;
+    margin-top: -.5rem;
+  }
+  
+  .previous {
+    float: left;
+    padding-left: 1.25rem;
+    
+    &:before {
+      @include awesome-fa;
+      @include vertical-center;
+      left: 0;
+      content: "\f053";
+    }
+  }
+  
+  .next {
+    float: right;
+    text-align: right;
+    padding-right: 1.25rem;
+    
+    &:after {
+      @include awesome-fa;
+      @include vertical-center;
+      right: 0;
+      content: "\f054";
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    margin: 0 auto;
+    padding: 4rem 1rem 8rem;
+  }
+  
+  .user-profile .user-avatar img {
+    width: 8rem;
+    height: 8rem
+  }
+
+  .user-profile .user-motivation {
+    font-size: 2.625rem;
+    line-height: 3.125rem
+  }
+  
+  .pagination {
+    a {
+      font-size: .75rem;
+    }
+    
+    .previous:before, .next:after {
+      margin-top: -.35rem;
+    }
+  }
+}
+
