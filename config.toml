@@ -14,6 +14,8 @@ title = "yii.im"
   GoogleplusID = "106025147843011494846"
   AnalyticsID = "UA-57408564-1"
   
+  Toc = true
+  
 [menu]
   # Shown in the side menu.
   [[menu.main]]

@@ -10,7 +10,7 @@
 <body>
   
   {{ partial "header.html" . }}
-  <section class="content">
+  <div class="content">
     <section class="posts">
       {{ $paginator := .Paginate (.Data.Pages.GroupByDate "2006-01") 20 }} 
       {{ range $paginator.PageGroups }}
@@ -26,7 +26,7 @@
       {{ end }}
     </section>
     {{ partial "pagination.html" . }}
-  </section>
+  </div>
   
   {{ partial "footer.html" . }}
   

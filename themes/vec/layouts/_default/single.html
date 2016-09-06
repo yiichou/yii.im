@@ -10,20 +10,23 @@
 <body>
   {{ partial "header.html" . }}
   <div class="content">
-    <div class="post">
+    {{ if .Site.Params.Toc }}{{ .TableOfContents }}{{ end }}
+    
+    <section class="post">
       <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
       <span class="post-date">{{ .Date.Format "Jan 2, 2006 " }}</span>
       <div class="post-content">
         {{ .Content }}
       </div>
-    </div>
-    <div class="pagination clearfix">{{ if .Prev }}
+    </section>
+    
+    <section class="pagination clearfix">{{ if .Prev }}
       <a class="btn previous " href="{{.Prev.Permalink}}"> {{.Prev.Title }} </a> {{ end }} {{ if .Next }}
       <a class="btn next " href="{{.Next.Permalink}}"> {{ .Next.Title }} </a> {{ end }}
-    </div>
+    </section>
   </div>
   {{ if .Params.comments }}
-  <div id="disqus_thread"></div>
+  <section id="disqus_thread"></section>
   <script>
     var disqus_config = function () {
       this.page.url = {{ .Permalink }};
