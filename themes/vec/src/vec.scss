@@ -303,22 +303,21 @@ footer {
     padding-left: 1.5rem;
   }
   
-  & ~ .post {
+  & ~ section {
     margin-left: -6rem;
   }
-  
-  & ~ .pagination {
-    margin: 4rem 6rem 0 -6rem;
-  }
+
 }
 
 .pagination {
+  width: 100%;
   margin: 4rem 0 0;
   padding: 1.6rem 0;
   border-top: 1px solid #e7e7e7;
   
   a {
-    width: 45%;
+    width: 42%;
+    overflow: hidden;
     position: relative;
   }
   
@@ -353,6 +352,16 @@ footer {
     }
   }
 }
+
+.disqus {
+  width: 100%;
+  padding: 5rem 0 2rem;
+  border-top: 1px solid #e7e7e7;
+}
+
+
+
+/* ============== media ============== */
 
 @media (max-width: 480px) {
   .content {
@@ -389,12 +398,8 @@ footer {
   #TableOfContents {
     display: none;
     
-    & ~ .post {
+    & ~ section {
       margin-left: 0rem;
-    }
-    
-    & ~ .pagination {
-      margin: 4rem 0 0;
     }
   }
 

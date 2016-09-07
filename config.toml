@@ -3,7 +3,8 @@ languageCode = "en-us"
 title = "yii.im"
 
 [params]
-  Subtitle = "I am iChou."
+  Keywords = "I am iChou."
+  Description = ""
   
   Avater = "//chou.oss-cn-hangzhou.aliyuncs.com/yii.im/avatar.jpg"
   SelfIntro = "Just a worm, seek for true, live in shadow, no more..." 
@@ -13,6 +14,7 @@ title = "yii.im"
   TwitterID = "IamIchou"
   GoogleplusID = "106025147843011494846"
   AnalyticsID = "UA-57408564-1"
+  DisqusShortname = "yiiim"
   
   Toc = true
   

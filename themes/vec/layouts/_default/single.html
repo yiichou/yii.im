@@ -20,27 +20,18 @@
       </div>
     </section>
     
-    <section class="pagination clearfix">{{ if .Prev }}
-      <a class="btn previous " href="{{.Prev.Permalink}}"> {{.Prev.Title }} </a> {{ end }} {{ if .Next }}
-      <a class="btn next " href="{{.Next.Permalink}}"> {{ .Next.Title }} </a> {{ end }}
+    <section class="pagination clearfix">
+      {{ if .PrevInSection }}
+      <a class="btn previous " href="{{.PrevInSection.Permalink}}"> {{ .PrevInSection.Title }} </a> 
+      {{ end }} 
+      {{ if .NextInSection }}
+      <a class="btn next " href="{{.NextInSection.Permalink}}"> {{ .NextInSection.Title }} </a> 
+      {{ end }}
     </section>
+    
+    {{ partial "disqus.html" . }}
   </div>
-  {{ if .Params.comments }}
-  <section id="disqus_thread"></section>
-  <script>
-    var disqus_config = function () {
-      this.page.url = {{ .Permalink }};
-      // this.page.identifier = PAGE_IDENTIFIER;
-    };
-    (function() {
-      var d = document, s = d.createElement('script');
-      s.src = '//{{ .Site.Params.DisqusShortname }}.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-  {{ end }}
+  
   {{ partial "footer.html" . }}
   
   <script src="{{ .Site.BaseURL }}/js/highlight.min.js"></script>
