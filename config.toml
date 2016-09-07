@@ -16,8 +16,6 @@ title = "yii.im"
   AnalyticsID = "UA-57408564-1"
   DisqusShortname = "yiiim"
   
-  Toc = true
-  
 [menu]
   # Shown in the side menu.
   [[menu.main]]

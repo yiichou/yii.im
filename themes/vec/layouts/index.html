@@ -3,8 +3,8 @@
 <head>
   <title> {{ .Site.Title }} </title>
   
-  {{ with .Site.Params.Keywords }}<meta name="keywords" content="{{ .Site.Params.Keywords }}">{{ end }}
-  {{ with .Site.Params.Description }}<meta name="description" content="{{ .Site.Params.Description }}">{{ end }}
+  {{ with .Site.Params.Keywords }}<meta name="keywords" content="{{.}}">{{ end }}
+  {{ with .Site.Params.Description }}<meta name="description" content="{{.}}">{{ end }}
   
   {{ partial "head.html" . }}
     

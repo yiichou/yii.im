@@ -10,7 +10,7 @@
 <body>
   {{ partial "header.html" . }}
   <div class="content">
-    {{ if .Site.Params.Toc }}{{ .TableOfContents }}{{ end }}
+    {{ if .Params.Toc }}{{ .TableOfContents }}{{ end }}
     
     <section class="post">
       <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
@@ -21,15 +21,15 @@
     </section>
     
     <section class="pagination clearfix">
-      {{ if .PrevInSection }}
-      <a class="btn previous " href="{{.PrevInSection.Permalink}}"> {{ .PrevInSection.Title }} </a> 
+      {{ with .PrevInSection }}
+      <a class="btn previous " href="{{.Permalink}}"> {{ .Title }} </a> 
       {{ end }} 
-      {{ if .NextInSection }}
-      <a class="btn next " href="{{.NextInSection.Permalink}}"> {{ .NextInSection.Title }} </a> 
+      {{ with .NextInSection }}
+      <a class="btn next " href="{{.Permalink}}"> {{ .Title }} </a> 
       {{ end }}
     </section>
     
-    {{ partial "disqus.html" . }}
+    {{ if .Params.comments }}{{ partial "disqus.html" . }}{{ end }}
   </div>
   
   {{ partial "footer.html" . }}
