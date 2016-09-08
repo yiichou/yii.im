@@ -1,20 +1,7 @@
 baseurl = "https://yii.im/"
-languageCode = "en-us"
+languageCode = "zh-CN"
 title = "yii.im"
-
-[params]
-  Keywords = "I am iChou."
-  Description = ""
-  
-  Avater = "//chou.oss-cn-hangzhou.aliyuncs.com/yii.im/avatar.jpg"
-  SelfIntro = "Just a worm, seek for true, live in shadow, no more..." 
-  Email = "yiichou@gmail.com"
-  
-  GithubID = "IvanChou"
-  TwitterID = "IamIchou"
-  GoogleplusID = "106025147843011494846"
-  AnalyticsID = "UA-57408564-1"
-  DisqusShortname = "yiiim"
+theme = "vec"
   
 [menu]
   # Shown in the side menu.
@@ -26,3 +13,16 @@ title = "yii.im"
     name = "about"
     weight = 1
     url = "/about"
+    
+[params]
+  Keywords = "I am iChou."
+  Description = ""
+  Avater = "//chou.oss-cn-hangzhou.aliyuncs.com/yii.im/avatar.jpg"
+  SelfIntro = "Just a worm, seek for true, live in shadow, no more..." 
+  
+  Email = "yiichou@gmail.com"
+  GithubID = "IvanChou"
+  TwitterID = "IamIchou"
+  GoogleplusID = "106025147843011494846"
+  AnalyticsID = "UA-57408564-1"
+  DisqusID = "yiiim"

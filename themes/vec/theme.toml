@@ -1,7 +1,7 @@
 name = "Vec"
 license = "MIT"
 licenselink = "https://github.com/IvanChou/yii.im/tree/hugo"
-description = "A vec minimal theme for Hugo."
+description = "Vec -- a minimal theme for Hugo."
 homepage = "https://github.com/IvanChou/yii.im/tree/hugo"
 tags = ["minimal", "clean", "neat", "black white", "blog"]
 features = ["blog"]
