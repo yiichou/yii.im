@@ -1,17 +1,17 @@
-# Slim
+# Vec
 
-Slim is a minimal, clean and beautiful theme for [Hugo](http://gohugo.io/).
+Vec is a minimal, clean and beautiful theme for [Hugo](http://gohugo.io/).
 
-![Slim screenshot](https://github.com/zhe/hugo-theme-slim/blob/master/images/screenshot.png)
+![Vec screenshot](https://github.com/IvanChou/hugo-theme-vec/blob/master/images/screenshot.png)
 
-[Demo](http://zhezhang.co).
+[Demo](http://yii.im).
 
 ## Installation
 
 ```
 mkdir themes
 cd themes
-git clone https://github.com/zhe/hugo-theme-slim slim
+git clone https://github.com/IvanChou/hugo-theme-vec vec
 ```
 
 See the [official docs](http://gohugo.io/themes/installing) for more information.
@@ -21,42 +21,55 @@ You could add `params` into your site's `config.toml` file:
 
 ```
 [params]
-  Subtitle = "Your site's subtitle/tagline"
+  Keywords = "key, 关键字, キーワード"
+  Description = "There are some words to describe your site"
+  
+  Avater = "//chou.oss-cn-hangzhou.aliyuncs.com/yii.im/avatar.jpg"
+  SelfIntro = "Just a worm, seek for true, live in shadow, no more..." 
+  
   GithubID = "Your Github ID"
   TwitterID = "Your Twitter ID"
+  FacebookID = "Your Facebook ID"
+  LinkedInID = "Your LinkedIn ID"
+  GoogleplusID = "Your Googleplus ID"
   AnalyticsID = "Your Google Analytics tracking code"
-  DisqusShortname = "Your Disqus shortname"
-  Summary = true  # takes true or false
-  Content = false  # takes true or false
-  # if both are set to true, summary is shown.
+  DisqusID = "Your Disqus shortname"
 ```
 
-if you use `config.yaml`, it could look like:
-
-```
-params:
-  Subtitle: "Your site's subtitle/tagline"
-  GithubID: "Your Github ID"
-  TwitterID: "Your Twitter ID"
-  AnalyticsID: "Your Google Analytics tracking code"
-  DisqusShortname: "Your Disqus shortname"
-  Summary: true # takes true or false
-  Content: false # takes true or false
-  # if both are set to true, summary is shown
-```
+If you use `config.yaml`, plz reformat them to yaml.
 
 ### Enable Disqus to your post
 
 1. Add your Disqus Shortname to the site config file;
 2. You can enable Disqus per-post, by adding `comments: true` (YAML) or `comments = true` (TOML) in the front matter of your post. To disable it, you can either change the value to `false` or just not include `comments` variable and its value at all. 
 
+### Enable TOC to your post
+
+If you need show table of contents per-post, adding `toc: true` (YAML) or `toc = true` (TOML) in the front matter of your post.
+
+Please notice that TOC will be hidden when browser width is less than 920px.
+
 ## Build your site
 
+Add `theme = "vec"` to your `config.toml`, then
+
 ```
-hugo server -t slim
+# Build
+hugo
+
+# Run a server
+hugo server
+```
+OR
+
+```
+hugo -t vec
+hugo server -t vec
 ```
 
 
 ## License
 
-Open sourced under [MIT license](https://github.com/zhe/hugo-theme-slim/blob/master/LICENSE.md).
+Open sourced under [MIT license](https://github.com/IvanChou/hugo-theme-vec/blob/master/LICENSE.md).
+
+
