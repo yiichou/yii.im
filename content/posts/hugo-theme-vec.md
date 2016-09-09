@@ -1,12 +1,22 @@
++++
+comments = false
+date = "2016-09-09T16:52:42+08:00"
+title = "A minimal hugo theme -- Vec"
+toc = false
+
++++
+
 # Vec
 
 Vec is a minimal, clean and beautiful theme for [Hugo](http://gohugo.io/).
 
-![Vec screenshot](https://github.com/IvanChou/hugo-theme-vec/blob/master/images/screenshot.png)
-
-![Vec screenshot2](https://github.com/IvanChou/hugo-theme-vec/blob/master/images/screenshot2.png)
-
 [Demo](http://yii.im).
+
+[Repo](https://github.com/IvanChou/hugo-theme-vec).
+
+![Vec screenshot](https://img.ichou.cn/assets/90d226103db0d33cfc9738f7e31a2bf0.png)
+
+![Vec screenshot2](https://img.ichou.cn/assets/2070fd4f8c95bbb187e08a9595d12089.png)
 
 ## Installation
 
@@ -73,5 +83,4 @@ hugo server -t vec
 ## License
 
 Open sourced under [MIT license](https://github.com/IvanChou/hugo-theme-vec/blob/master/LICENSE.md).
-
 

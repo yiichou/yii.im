@@ -4,10 +4,11 @@ doc/
 *.swp
 *~
 .project
-.idea
+.idea/gia
 .secret
 .DS_Store
 .MWebMetaData
-.sass-cache
+.sass-cache/
+.bundle/
 
 /content/posts/media
