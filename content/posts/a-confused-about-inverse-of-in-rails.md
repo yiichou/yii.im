@@ -2,6 +2,7 @@
 date = "2015-04-04T23:25:23+08:00"
 title = "关于 inverse_of 的困惑"
 comments = true
+toc = true
 
 +++
 

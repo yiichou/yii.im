@@ -1,7 +1,7 @@
 +++
 date = "2016-06-18T10:39:15+08:00"
-draft = false
 title = "使用 Php Artisan Tinker 来调试你的 Laravel"
+toc = true
 
 +++
 

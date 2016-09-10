@@ -2,6 +2,7 @@
 date = "2014-08-28T22:40:24+08:00"
 draft = false
 title = "基于阿里云OSS的WordPress远程附件支持插件——阿里云附件(Aliyun Support)(修订版)"
+toc = true
 
 +++
 

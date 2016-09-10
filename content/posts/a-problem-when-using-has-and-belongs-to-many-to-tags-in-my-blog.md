@@ -1,6 +1,7 @@
 +++
 date = "2015-01-30T23:22:07+08:00"
 title = "Rails 博客使用 has_and_belongs_to_many 处理 Tag 时遇到的一个问题"
+toc = true
 
 +++
 

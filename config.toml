@@ -2,6 +2,7 @@ baseurl = "https://yii.im/"
 languageCode = "zh-CN"
 title = "yii.im"
 theme = "vec"
+paginate = 20
   
 [menu]
   # Shown in the side menu.
@@ -25,4 +26,4 @@ theme = "vec"
   TwitterID = "IamIchou"
   GoogleplusID = "106025147843011494846"
   AnalyticsID = "UA-57408564-1"
-  DisqusID = "yiiim"
+  DisqusShortname = "yiiim"

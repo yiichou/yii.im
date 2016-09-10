@@ -1,6 +1,7 @@
 +++
 date = "2014-09-03T22:42:49+08:00"
 title = "Aliyun OSS support plugin for wordpress (ver: 2.4.0)"
+toc = true
 
 +++
 
