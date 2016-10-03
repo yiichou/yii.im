@@ -1,11 +1,9 @@
 +++
 date = "2014-09-03T22:42:49+08:00"
-title = "Aliyun OSS plugin for wordpress"
+title = "阿里云 OSS 支持插件 (Aliyun OSS For WordPress)"
 toc = true
 
 +++
-
-# 阿里云 OSS 支持插件 (Aliyun OSS For WordPress)
 
 本插件主要为 Wordpress 提供基于阿里云 OSS 的远程附件存储功能，并且最大限度的依赖 Wordpress 本身功能扩展来实现，以保证插件停用或博客搬迁时可以快速切换回原来的方式。
 
