@@ -9,9 +9,8 @@ title = "Wordpress 在 PHP7.1 下 wp_default_styles()报 Warning 的探究"
 
 如果你使用最新的发布的 PHP7.1 来跑 WordPress，会惊讶的发现页面上会报出几个 Warning 的错误
 
-```
+```plain
 Warning: Parameter 1 to wp_default_styles() expected to be a reference, value given in /Users/Home/Sites/WordPress-4.6/wp-includes/plugin.php on line 600
-
 Warning: Parameter 1 to wp_default_scripts() expected to be a reference, value given in /Users/Home/Sites/WordPress-4.6/wp-includes/plugin.php on line 600
 ```
 
@@ -47,6 +46,7 @@ $the_['accepted_args']));
 ```bash
 nikic@saturn:~/php-src-fast$ sapi/cgi/php-cgi -c php.ini -T1
 .../wordpress-4.1/index.php | grep Warning
+
 Warning:  Parameter 1 to wp_default_styles() expected to be a
 reference, value given in
 /home/nikic/wordpress-4.1/wp-includes/plugin.php on line
