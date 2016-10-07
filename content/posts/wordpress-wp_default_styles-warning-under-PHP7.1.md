@@ -20,7 +20,7 @@ Warning: Parameter 1 to wp_default_scripts() expected to be a reference, value g
 
 在 WordPress 的官网 support 里面有人提过这个 BUG，但是并没有获得有效的回应，只是提醒大家 PHP7.1 目前还不是稳定版本 😂😂
 
-最后，我倒是在 php 的官方组邮件中找到了相关信息：
+最后，我倒是在 php 的官方邮件组中找到了相关信息：
 
 邮件地址：http://php-news.ctrl-f5.net/message/php.internals/94856
 
@@ -31,7 +31,9 @@ Warning: Parameter 1 to wp_default_scripts() expected to be a reference, value g
 > This is caused by the change to array_slice() as part of
 > https://github.com/php/php-src/commit/e730c8fc90299789a7f551cb7142e182952d92e0#diff-497f073aa1ab88afcb8b248fc25d2a12R3014
 > ..
+> 
 > As a consequence of this change, an array_slice() on an array with rc=1 references will now not return these references in the result. (This is the correct behavior -- previously it instead dropped the references in the original array, which is not wrong either, but non-standard.)
+> 
 > It looks like Wordpress is passing these arrays to call_user_func_array()
 with a function that expects a reference argument:
 
@@ -59,11 +61,11 @@ reference, value given in
 
 这个 commit 是鸟哥(laruence) 提的，目的是优化 `array_merge()`, 顺便也就修复了 `array_slice()` 这个方法中一个**不符合标准**的行为。
 
-**当我们用 `array_slice()` 处理一个包含引用次数为 1 的引用元素的数组时，该元素在返回的结果中会以值(value)的形式存在，而不是引用(references)。**
+**当我们用 `array_slice()` 处理一个包含引用次数为 1 的引用元素的数组时，该元素在返回的结果数组中会以值(value)的形式存在，而不是引用(references)。**这里有点不同于之前的版本，之前的版本返回的结果依旧是引用，这两种方式并没有谁对谁错，只能说之前的处理方式不够标准。
 
 ## 复现与证实
 
-调查到这里本来应该是『水落石出』了，但是，我 TM 英语差，一开始完全理解不到 Nikita 说的改动到底是什么，为了弄清楚这里面的详细，真是花去了我不少时间。
+本来调查到这里本来应该是『水落石出』了，但是，我英语差啊，一开始完全理解不到 Nikita 说的改动到底是什么，为了弄清楚这里面的详细，真是花去了我不少时间。
 
 ### 从哪儿报的错
 
@@ -107,12 +109,12 @@ call_user_func_array('test', [&$a]);
 
 4. 同第2项报错，结合起来也说明了 `call_user_func()` 是无法使用引用元素作为回调参数的。
 
-5. 同第3项，因为 WordPress 也是用的 `call_user_func_array()` 因此这组还原了报错来源。
+5. 同第3项，因为 WordPress 也是用的 `call_user_func_array()` 因此这项还原了报错信息的来源。
 
 6. 成功的调用，`$a` 的值被改写为 3.
 
 这就证明了，WordPress 的这个报错确实是因为 `array_slice($args, 0, (int)
-$the_['accepted_args']))` 所返回数组中的元素，不是引用，而是值。
+$the_['accepted_args']))` 返回数组中的元素，不是引用，而是值。
 
 更多关于回调函数与引用做参数的讨论：[Why does the error “expected to be a reference, value given” appear?](http://stackoverflow.com/questions/3637164/why-does-the-error-expected-to-be-a-reference-value-given-appear) 
 
@@ -186,19 +188,19 @@ new Test()
 
 通过常规赋值的方式，`$a`,`$b[0]` 会指向同一个内容对象，也就是说在我们完成这个赋值的时候，`$a` 所指向的内存对象已经被引用了两次，所以 refcount=2。这样也就不满足 Nikita 所说的 rc=1 的条件了，于是 `array_slice()` 返回的数组 `$_b` 中依旧是引用。
 
-想要构造 refcount=1，is_ref=1 这个『苛刻』的条件，我目前知道也就在 class 的方法中用 `$this` 引用自身的时候会出现。当满足这个条件的 `$t` 经 `array_slice()` 处理后，返回的 `$_t` 中元素的引用次数虽然增加了，但是不在是引用了，is_ref=0。
+想要构造 refcount=1，is_ref=1 这个『苛刻』的条件，目前我所知道也就只有在 class 的方法中用 `$this` 引用自身的时候会出现。当满足这个条件的 `$t` 经 `array_slice()` 处理后，返回的 `$_t` 中元素的引用次数虽然增加了，但是不再是引用，而是拷贝，其 is_ref=0。
 
-后者的这个情况，也正是 WordPress 中所遇到的情况，可以说是在如此多低概率的巧合之下，才『终于』有了 WordPress 的这个报错。 😂
+后者的情况，也正是 WordPress 中所遇到的情况，可以说正是在如此多低概率的巧合之下，才『终于』有了 WordPress 的这个报错。 😂
 
 ## 修复措施
 
 知道原因之后，如果要修复这个问题就变得有点过于简单了。既然触发的条件是 rc=1, 那只需要在 `array_slice()` 之前随意用个变量把 `$args` 的元素多引用一次就可以解决了。当然也可以把`array_slice()` 处理之后的数组强行变回引用的方式。
 
-最好的方法，还是在业务逻辑上就避免这种情况的发生。如果不是被逼不得已，否则千万不要让你的代码中出现太怪异的写法。
+最好的方法，还是在业务逻辑上就避免这种情况的发生。除非是迫不得已，否则千万不要在代码中使用太怪异的写法。
 
-到 WordPress 核心维护小组的仓库中看了下下个版，也就是即将准备发布的 4.7，发现整个 `do_action_ref_array()` 方法都被重写了，根本不再使用 `array_slice()`，也就不会受这个问题的困扰了。
+到 WordPress 核心维护小组的仓库中看了下新版本，也就是即将准备发布的 4.7，发现整个 `do_action_ref_array()` 方法都被重写了，根本不再使用 `array_slice()`，也就没有这个问题的困扰了。
 
-https://core.trac.wordpress.org/changeset/38571
+详见：https://core.trac.wordpress.org/changeset/38571
 
 ## 总结和感悟
 
