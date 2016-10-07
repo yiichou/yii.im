@@ -27,14 +27,12 @@ Warning: Parameter 1 to wp_default_scripts() expected to be a reference, value g
 主要解答：
 
 > Thanks for pointing this out.
-This is caused by the change to array_slice() as part of
-https://github.com/php/php-src/commit/e730c8fc90299789a7f551cb7142e182952d92e0#diff-497f073aa1ab88afcb8b248fc25d2a12R3014
-..
-As a consequence of this change, an array_slice() on an array with rc=1
-references will now not return these references in the result. (This is the
-correct behavior -- previously it instead dropped the references in the
-original array, which is not wrong either, but non-standard.)
-It looks like Wordpress is passing these arrays to call_user_func_array()
+> 
+> This is caused by the change to array_slice() as part of
+> https://github.com/php/php-src/commit/e730c8fc90299789a7f551cb7142e182952d92e0#diff-497f073aa1ab88afcb8b248fc25d2a12R3014
+> ..
+> As a consequence of this change, an array_slice() on an array with rc=1 references will now not return these references in the result. (This is the correct behavior -- previously it instead dropped the references in the original array, which is not wrong either, but non-standard.)
+> It looks like Wordpress is passing these arrays to call_user_func_array()
 with a function that expects a reference argument:
 
 ```php
@@ -207,6 +205,6 @@ https://core.trac.wordpress.org/changeset/38571
 1. 有时候，找到一个合理的解释很容易，但是要真正的理解、复现并消化一个问题时，遇到的问题很可能会比你一开始想要解决的问题复杂得多。而且它们看上去并不是那么迫切的需要，追寻的过程中很容易放弃。
 2. 能写代码证明的，不要靠猜
 3. PHP 官方手册的中文版和英文版不是完全同步的，比如[引用做什么](http://php.net/manual/zh/language.references.whatdo.php)中的第二个 Note，英文版已经移除。还有一些具体的细节处，英文版都有明确指出改动的版本，中文版很多没有。
-4. 鸟哥（laruence）很强大
+4. 鸟哥（Laruence）很强大
 5. PHP 是世界上最好的语言
 
