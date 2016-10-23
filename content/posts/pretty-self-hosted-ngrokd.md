@@ -20,7 +20,7 @@ comments = true
 
 ### 方案二
 
-一种更为有效的解决方案是：使用一台拥有公网 IP 的主机，通过隧道来实现转发。其实在很早之前，为了让处于校园网内网的服务器在外网可以访问，我通常通过 SSH Tunnel 来解决这个问题。
+一种更为有效的解决方案是：使用一台拥有公网 IP 的主机，通过隧道来实现转发。其实在很早之前，为了让处于校园网内网的服务器在外网可以访问，我经常通过 SSH Tunnel 来解决这个问题。
 
 ```bash
 # 将远程主机的 10086 转发到本地的 3000
@@ -55,8 +55,6 @@ sudo apt-get install build-essential golang mercurial git
 
 ```bash
 git clone https://github.com/inconshreveable/ngrok.git ngrok
-### 请使用下面的地址，修复了无法访问的包地址
-git clone https://github.com/tutumcloud/ngrok.git ngrok
 cd ngrok
 ```
 
@@ -69,6 +67,8 @@ sudo cp bin/ngrokd /usr/local/bin/ngrokd
 
 
 #### Apt-get 安装（二选一）
+
+如果你并不需要最新版本的 ngrokd, 同时对源码安装也没什么兴趣，那么其实可以偷懒
 
 ```bash
 sudo apt-get install ngrok-server
@@ -91,17 +91,31 @@ ngrok 通讯依赖 TLS 证书来加密，所以启动的时候需要指定你的
 - 使用自签名证书，并自行编译分发带自签名证书的客户端
 - 使用自签名证书，使用通用的客户端，但需要用户把自签名证书添加到自己根证书
 
-本文中使用第一种方式，域名证书通过 [沃通CA免费SSL证书](http://www.wosign.com/Products/free_SSL.htm) 取得，这是一个包含一个域名(yii.im)的证书，所有的二级域名都不被支持。
+本文中使用第一种方式，域名证书通过 [沃通CA免费SSL证书](http://www.wosign.com/Products/free_SSL.htm) 取得。
 
-由于 ngrok 工作是通过分配 subdomain 的方式，而证书又不支持子域名，所以这样搭建的 ngrok 服务并不支持 https。虽然不完美，但是日常使用并没有强制要求 https 的情况，能跑就够了，要什么自行车。
+关于第二种方式，可以参考：https://imququ.com/post/self-hosted-ngrokd.html。目前网上流行的 ngrok 服务或教程，基本上都是基于这种方式的。
+
+第三种方式，除了需要用户添加根证书以外，其他配置与本文一样。
+
+##### 关于 https 的支持
+
+由于 ngrok 工作是通过分配 subdomain 的方式，所以我们实际使用到的域名都是 yii.im 的子域名，如 pub.yii.im 如果要对这个子域名启用 https 服务，那么至少需要三点支持：
+
+1. ngrok 支持 https， 这个默认就是开启的
+2. pub.yii.im 也需要有证书或包含在一个泛域名证书中
+3. 浏览器（或其他终端）信任 pub.yii.im 的根证书
+
+根据这三点要求，我们重新解读上面三种证书的处理方式：
+
+第一种：由于免费证书是单域名证书，所以你需要给可能会用到二级域名也签上证书才行，当然，如果够钱，买个包含所有二级域名的证书也是可以的
+
+第二种：自签名证书很容易做到第二点，然而并无卵用，除了自编译的 ngrok-client外谁也不认这个证书
+
+第三种：可以支持 https，但是要所有用户（包括访问用户）都添加根证书这种要求，略微有点...
+
+综上所述，我们选择放弃了 https ，因为日常使用并没有强制要求 https 的情况，能跑就够了，要什么自行车。
 
 ㄟ( ▔, ▔ )ㄏ手动滑稽
-
-关于第二种方式，可以参考：https://imququ.com/post/self-hosted-ngrokd.html
-
-目前网上流行的 ngrok 服务或教程，基本上都是基于这种方式的。
-
-第三种方式，除了需要用户添加根证书以外，基本跟本文一样，不需要单独编译客户端，并且支持 https。
 
 #### 启动设定
 
@@ -153,11 +167,13 @@ server {
 }
 ```
 
-这里就有一个很烦躁的地方了，ngrokd 里面有一层自己的 Host 处理，于是 `proxy_set_header Host` 必须带上你所指定的端口，否则就算请求被转发到 ngrokd，也没有办法被正确的处理。进而，就导致了另一个操蛋的问题：你请求的时候是 sub.yii.im，但是你在 web 应用中获取到的是 sub.yii.im:8081。
+但是！这里就有一个很烦躁的地方了，ngrokd 里面有一层自己的 Host 处理，于是 `proxy_set_header Host` 必须带上 ngrokd 所监听的端口，否则就算请求被转发到对应端口上， ngrokd 也不会正确的处理。
 
-要完美的解决这个端口隐藏问题，就需要让 ngrokd 直接监听 80 端口。
+带上端口号又会导致了另一个操蛋的问题：你请求的时候是 sub.yii.im，你在 web 应用中获取到的 Host 是 sub.yii.im:8081，如果你的程序里面有基于 Request Host 的重定向，就会被重定向到 sub.yii.im:8081 下面去。
 
-通常来说 VPS 都是双网卡的（一内一外），直接让 ngrokd 监听外网的 80 多少还是有些浪费，这个端口还是留给 nginx 比较合理。所以比较理想的方式是：nginx 监听外网 80，ngrokd 监听内网 80，让 nginx 将对应的请求转发到内网 80 上来。
+要完美的解决这个端口的问题，就需要让 ngrokd 直接监听 80 端口。
+
+通常来说 VPS 都是双网卡的（一内一外），让 ngrokd 监听外网的 80 实在有些浪费，这个端口还是留给 nginx 比较合理。所以比较理想的方式是：nginx 监听外网 80，ngrokd 监听内网 80，让 nginx 将对应的请求转发到内网 80 上来。
 
 如： 
 
@@ -227,7 +243,10 @@ ngrok 在进行 TCP 连接的时候，是通过额外开启一个端口的方式
 
 由于使用的是 CA 证书，所以不需要自行编译客户端，可以网上自行下载各种 ngrok v1.7 的客户端，理论上都是可用的（有的似乎对客户端做了修改，或许有其它未知原因而无法使用，请自行略过）
 
-资源随后放出 ㄟ( ▔, ▔ )ㄏ  => http://pan.baidu.com/s/1b548fO
+> 2016年10月：
+> Mac 升级到 10.12 后，稍微旧一点的 ngrok-client 都有心跳 bug，导致经常断开且界面状态无变化，需要重新下载或编译一下最新的客户端。
+
+资源地址 ㄟ( ▔, ▔ )ㄏ  => http://pan.baidu.com/s/1b548fO
 
 MAC & Linux 下，可以将 ngrok 放到 `/usr/local/bin/` 下备用
 
