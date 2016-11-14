@@ -180,7 +180,7 @@ PHP-FPM 通过 `SCRIPT_FILENAME` 来找到真正需要执行的文件，`SCRIPT_
 
 想要详细了解 CGI 请参阅：[rfc3875](http://www.faqs.org/rfcs/rfc3875.html)
 
-### 最终配置
+## 最终配置
 
 ```
 root   /path/to/your/laravel/public;
