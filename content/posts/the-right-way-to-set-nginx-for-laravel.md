@@ -191,7 +191,11 @@ location / {
     fastcgi_param  SCRIPT_FILENAME  $document_root/index.php;
 }
 
-location ~* \.(ico|css|js|gif|jpe?g|png)(\?.*)?$ {
+location ~* \.(ico|css|js|gif|jpg|jpeg|png)(\?.*)?$ {
+    # something you want
+}
+
+location ~* \.(html|htm)$ {
     # something you want
 }
 
@@ -199,7 +203,7 @@ location ~* \.(ico|css|js|gif|jpe?g|png)(\?.*)?$ {
 
 这份配置的特点在于把 Laravel 当成一个独立的纯粹的单入口应用来处理，而不是考虑各种 php 环境的通性。它直接将所有非静态资源的请求直接转发到驱动 Laravel 的 PHP-FPM 中，而静态资源使用下面的一条规则，直接取得文件（具体原理见参考文章第一篇）。
 
-### 继续优化的方向
+## 继续优化的方向
 
 到目前为止，本文的讨论的内容只涉及到了 Nginx 的配置，其实在这个环境体系中还有一个关键的环节 —— PHP-FPM。通常（至少我接触到的）来说，人们只会在一个环境上配置一个 PHP-FPM, 然后所有的项目都使用这个 fpm 提供的服务，PHP-FPM 本身也被设计成可以接受这样的方式。
 
