@@ -8,12 +8,12 @@
       </li>
       {{ range .Site.Menus.main }}
       {{ $name := lower .Name }}
-      <li class="pull-left {{ if eq $name $title }}current{{ else if eq $section $name }}current{{ end }}">
+      <li class="pull-left {{ if eq $name $title }}current{{ else if eq $section $name }}current{{ else if eq $title (pluralize $name) }}current{{ end }}">
         <a href="{{ .URL }}">~/{{ lower .Name }}</a>
       </li>
       {{end}}
   
-      <li class="pull-right"><a href="{{ .RSSlink }}"><i class="fa fa-rss"></i></a></li>
+      <li class="pull-right"><a href="{{ .RSSLink }}"><i class="fa fa-rss"></i></a></li>
     </ul>
   </nav>
 </header>
