@@ -37,9 +37,9 @@ puts api.detection.detect url: '/tmp/0.jpg'
 
 ## 实现原理
 
-链式调用的实现原理其实很好理解，每当你调用对象的某些方法时，返回一个对象所属类的新实例即可
+链式调用的实现原理其实很好理解，每当你调用一个链式对象的某个方法时，返回一个该对象所属类的新实例即可
 
-比如在 ActiveRecord 中，当你调用 Model Article 的 `where` 方法时，它返回了一个 `ActiveRecord::Relation` 实例。`limit(20)` 其实调用的是这个 `ActiveRecord::Relation` 实例的 `limit` 方法，然后返回一个新的 `ActiveRecord::Relation` 实例，以此类推。
+比如在 ActiveRecord 中，当你调用 Model `Article` 的 `where` 方法时，它返回了一个 `ActiveRecord::Relation` 实例，假定它叫 `relation_1`。`.limit(20)` 其实调用的是`relation_1` 的 `limit` 方法，然后返回一个新的 `ActiveRecord::Relation` 实例 `relation_2`，以此类推。
 
 所以当你只是调用 `ActiveRecord::Relation` 的各种查询方法时，并没有真的触发查询，而是不停的返回新的 `ActiveRecord::Relation` 实例，直到遇到第一个需要取值的调用，才会触发查询，并返回数据。
 
@@ -88,8 +88,8 @@ end
 
 1. 先预置了一个 api path 的列表，相当于一个路由表。
 2. 当 FacePP 被 new 的时候，会逐条解析这个路由表，把每条路由以 `/` 作分割符解析为数组。
-3. 遍历数组至倒数第二个元素，把每个元素变成上层对象的一个同名实例变量，值为一个新的 `Object` 实例，并通过 `attr_reader` 为该实例变量添加访问方法
-4. 将数组的最后一个元素变成上层对象的一个 `singleton_method`, 里面执行了真正的请求内容。
+3. 遍历数组至倒数第二个元素，把每个元素变成上层对象的一个同名实例变量，其值是一个新的 `Object` 实例，并通过 `attr_reader` 为该实例变量添加访问方法
+4. 将数组的最后一个元素变成上层对象的一个 `singleton_method`, 里面包含了真正的请求代码。
 
 其成果就是，我们可以以
 
@@ -106,7 +106,7 @@ api.detection.detect url: '/tmp/0.jpg'
 假定我们的需求场景再复杂一点
 
 1. 包含的项目多，接口数量庞大，接口变动相对频繁
-2. 常用的 4 种 http 请求方式（FacePP 所有接口都是 POST）
+2. 常用的 4 种 http 请求方式都需要被支持（FacePP 所有接口都是 POST）
 3. 被调用的路由很长，但前面有一大段是几乎不会变的前缀
 4. 各个接口的的请求实现方式可能不完全一样
 
@@ -114,7 +114,7 @@ api.detection.detect url: '/tmp/0.jpg'
 
 1. 抛弃预置路由表，通过覆写 method_missing 方法，在被调用的时候才去生成链式对象
 2. 以 `get|post|put|delete` 作为最后一层发起请求的方法来结束一串调用
-3. 为链式对象 `Object.new` 增加一些实例变量，比如 `#host`， `#path` 等，初始化时可以通过附加参数指定前缀
+3. 为链式对象 `Object.new` 增加一些实例变量，比如 `#host`， `#path` 等，初始化时可以通过附加参数指定前缀等参数
 4. 允许传入一个 block
 
 ## 总结
@@ -126,7 +126,7 @@ api.detection.detect url: '/tmp/0.jpg'
 
 实际使用中，几乎所有同事都倾向于使用后面这种方式来书写代码，有定义好的要用，没有定义好的自己去加上也要用。不知道这是不是 Rubyist 们追求代码优雅的一个常态。
 
-Anyway，等我用链式调用重写了这个 gem 后，他们就再也不用纠结怎么调好看了，也不用在新增接口时一个个的去新增调用方法了，嘎嘎嘎嘎~~~
+Anyway，等我用链式调用重写了这个 gem 后，他们就再也不用纠结怎么调了，也不用在新增接口时一个个的去新增调用方法了。想一想那酸爽，鸡肉味，嘎嘣脆~~~
 
 
 
