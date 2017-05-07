@@ -113,7 +113,7 @@ api.detection.detect url: '/tmp/0.jpg'
 由此，我想到了一些改进思路
 
 1. 抛弃预置路由表，通过覆写 method_missing 方法，在被调用的时候才去生成链式对象
-2. 以 `get|post|put|delete` 作为最后一层发起请求的方法来结束一串调用
+2. 以 `get|post|put|delete` 或 `index|show|create|update|destroy|save` 作为最后一层发起请求的方法来结束一串调用
 3. 为链式对象 `Object.new` 增加一些实例变量，比如 `#host`， `#path` 等，初始化时可以通过附加参数指定前缀等参数
 4. 允许传入一个 block
 
@@ -127,6 +127,4 @@ api.detection.detect url: '/tmp/0.jpg'
 实际使用中，几乎所有同事都倾向于使用后面这种方式来书写代码，有定义好的要用，没有定义好的自己去加上也要用。不知道这是不是 Rubyist 们追求代码优雅的一个常态。
 
 Anyway，等我用链式调用重写了这个 gem 后，他们就再也不用纠结怎么调了，也不用在新增接口时一个个的去新增调用方法了。想一想那酸爽，鸡肉味，嘎嘣脆~~~
-
-
 
