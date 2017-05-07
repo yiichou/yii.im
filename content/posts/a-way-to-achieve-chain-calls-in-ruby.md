@@ -114,7 +114,7 @@ api.detection.detect url: '/tmp/0.jpg'
 
 1. 抛弃预置路由表，通过覆写 method_missing 方法，在被调用的时候才去生成链式对象
 2. 以 `get|post|put|delete` 或 `index|show|create|update|destroy|save` 作为最后一层发起请求的方法来结束一串调用
-3. 为链式对象 `Object.new` 增加一些实例变量，比如 `#host`， `#path` 等，初始化时可以通过附加参数指定前缀等参数
+3. 为链式对象 `Object.new` 增加一些实例变量，比如 `@host`， `@path` 等，初始化时可以通过附加参数指定前缀等参数
 4. 允许传入一个 block
 
 ## 总结
