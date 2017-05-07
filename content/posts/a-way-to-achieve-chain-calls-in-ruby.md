@@ -122,7 +122,7 @@ api.detection.detect url: '/tmp/0.jpg'
 在我所在的公司，有一个内部 gem 叫 `services_support`, 专门用来处理系统间的 api 调用。这个 gem 实现了两种接口调用方式：
 
 - 一种是诸如 `ServicesSupport::BMS.post 'api/orders', args` 这样将 path 作为参数传入
-- 一种是预定义一个 `BMS#create_order(args)` 方法来调用
+- 一种是预定义一个 `ServicesSupport::BMS#create_order(args)` 方法来调用
 
 实际使用中，几乎所有同事都倾向于使用后面这种方式来书写代码，有定义好的要用，没有定义好的自己去加上也要用。不知道这是不是 Rubyist 们追求代码优雅的一个常态。
 
