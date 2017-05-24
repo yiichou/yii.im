@@ -1,5 +1,5 @@
 +++
-title = "在 ruby 中简单实现链式调用的方法"
+title = "用 method chain 方式来包装 HTTP API 调用"
 comments = false
 date = "2017-05-07T16:44:25+08:00"
 toc = false
