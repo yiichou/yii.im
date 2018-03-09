@@ -5,7 +5,7 @@ echo "git push origin hugo"
 git push origin hugo
 echo "========================"
 echo "Deploy to yii"
-shell='cd /var/www/yii.im.hugo && git pull origin hugo && echo "========================" && hugo -t vec'
+shell='cd /home/live/yii.im && git pull origin hugo && echo "========================" && hugo -t vec'
 ssh yii ${shell}
 echo "Status: Finished"
 echo "========================"
