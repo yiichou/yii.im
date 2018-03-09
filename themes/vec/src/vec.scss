@@ -137,9 +137,14 @@ footer {
 
 /* ============== Index ============== */
 
+.index {
+  display: flex;
+  align-items: center;
+}
+
 .user-profile {
   width: 100%;
-  padding: 4rem 1rem 8rem;
+  padding: 4rem 1rem 12rem;
   font-family: $font-title;
   color: #888;
   text-align: center;

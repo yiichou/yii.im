@@ -152,9 +152,13 @@ footer {
     padding-top: 0.25rem; }
 
 /* ============== Index ============== */
+.index {
+  display: flex;
+  align-items: center; }
+
 .user-profile {
   width: 100%;
-  padding: 4rem 1rem 8rem;
+  padding: 4rem 1rem 12rem;
   font-family: "Russo One", "Arial Black", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   color: #888;
   text-align: center;
