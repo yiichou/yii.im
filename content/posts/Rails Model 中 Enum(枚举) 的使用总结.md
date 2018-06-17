@@ -1,8 +1,9 @@
-+++
-date = "2018-06-14T05:41:07+08:00"
-title = "Rails Model 中 Enum(枚举) 的使用总结"
-slug = "some-tips-about-activerecord-enum-in-rails"
-+++
+---
+date: "2018-06-14T05:41:07+08:00"
+title: "Rails Model 中 Enum(枚举) 的使用总结"
+slug: "some-tips-about-activerecord-enum-in-rails"
+toc: true
+---
 
 在 Rails 的 ActiveRecord 中，有一个 ActiveRecord::Enum 的 Module，即枚举对象。
 
