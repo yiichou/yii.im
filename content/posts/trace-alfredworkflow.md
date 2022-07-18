@@ -15,13 +15,13 @@ title = "造了一个快速切换系统代理的 Alfred workflow -- Trace ON!"
 在网上找了一下 Alfred 的插件，发现一个 Pac-helper。用倒是可以用，不过略微有点简陋，于是就自己抽时间造了一个，效率提升杠杠的 
 
 项目地址： 
-https://github.com/IvanChou/Trace.alfredworkflow 
+https://github.com/yiichou/Trace.alfredworkflow 
 
 ### Quickly start
 
 1. Download
     
-    https://github.com/IvanChou/Trace.alfredworkflow/raw/master/Trace%20(Proxy-helper).alfredworkflow
+    https://github.com/yiichou/Trace.alfredworkflow/raw/master/Trace%20(Proxy-helper).alfredworkflow
     
 2. Setting
     

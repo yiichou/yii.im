@@ -12,7 +12,7 @@ Vec is a minimal, clean and beautiful theme for [Hugo](http://gohugo.io/).
 
 [Demo](http://yii.im).
 
-[Repo](https://github.com/IvanChou/hugo-theme-vec).
+[Repo](https://github.com/yiichou/hugo-theme-vec).
 
 ![Vec screenshot](https://stc.ichou.cn/assets/90d226103db0d33cfc9738f7e31a2bf0.png)
 
@@ -23,7 +23,7 @@ Vec is a minimal, clean and beautiful theme for [Hugo](http://gohugo.io/).
 ```
 mkdir themes
 cd themes
-git clone https://github.com/IvanChou/hugo-theme-vec vec
+git clone https://github.com/yiichou/hugo-theme-vec vec
 ```
 
 See the [official docs](http://gohugo.io/themes/installing) for more information.
@@ -82,5 +82,5 @@ hugo server -t vec
 
 ## License
 
-Open sourced under [MIT license](https://github.com/IvanChou/hugo-theme-vec/blob/master/LICENSE.md).
+Open sourced under [MIT license](https://github.com/yiichou/hugo-theme-vec/blob/master/LICENSE.md).
 

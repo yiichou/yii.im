@@ -88,7 +88,7 @@ toc = true
 
 ## 源码（coffeescript）
 
-https://gist.github.com/IvanChou/ab3970341008b04a788c
+https://gist.github.com/yiichou/ab3970341008b04a788c
 
 ## 其他
 

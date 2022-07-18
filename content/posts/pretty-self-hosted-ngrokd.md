@@ -218,7 +218,7 @@ server {
 > 注意： Ubuntu 适用，Centos 需要一点修改
 
 ``` bash
-wget https://gist.githubusercontent.com/IvanChou/1be8b15b1b41bf0ce2e9d939866bbfec/raw/1a2445599fe7fd706505a6e103a9dc60b4d3a0ed/ngrokd -O ngrokd
+wget https://gist.githubusercontent.com/yiichou/1be8b15b1b41bf0ce2e9d939866bbfec/raw/1a2445599fe7fd706505a6e103a9dc60b4d3a0ed/ngrokd -O ngrokd
 
 # 修改 脚本中的配置
 vi ngrokd

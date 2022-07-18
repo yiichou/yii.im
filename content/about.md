@@ -6,7 +6,7 @@ formspree = true
 +++
 
 ## ABOUT ME
-I am Ivan Chou.
+I am YiiChou.
 
 not any more~
 

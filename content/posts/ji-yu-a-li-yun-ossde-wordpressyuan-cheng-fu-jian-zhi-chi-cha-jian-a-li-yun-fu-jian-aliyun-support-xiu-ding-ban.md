@@ -36,11 +36,11 @@ toc = true
 
 #### 插件下载：
 
-[OSS-Support.zip](https://github.com/IvanChou/aliyun-oss-support/archive/master.zip)
+[OSS-Support.zip](https://github.com/yiichou/aliyun-oss-support/archive/master.zip)
 
 #### 源码
 
-[https://github.com/IvanChou/aliyun-oss-support](https://github.com/IvanChou/aliyun-oss-support)
+[https://github.com/yiichou/aliyun-oss-support](https://github.com/yiichou/aliyun-oss-support)
 
 * * *
 

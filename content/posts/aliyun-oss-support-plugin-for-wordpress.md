@@ -9,11 +9,11 @@ toc = true
 
 ## 项目地址
 
-[Github](https://github.com/IvanChou/aliyun-oss-support)
+[Github](https://github.com/yiichou/aliyun-oss-support)
 
 ## 当前版本
 
-Stable: [`3.0.0`](https://github.com/IvanChou/aliyun-oss-support/releases/latest)
+Stable: [`3.0.0`](https://github.com/yiichou/aliyun-oss-support/releases/latest)
 
 ## 插件特色
 
@@ -29,11 +29,11 @@ Stable: [`3.0.0`](https://github.com/IvanChou/aliyun-oss-support/releases/latest
 
 ## 插件使用
 
-关于插件使用方式的 Wiki: [Quick start](https://github.com/IvanChou/aliyun-oss-support/wiki/Quick-start)
+关于插件使用方式的 Wiki: [Quick start](https://github.com/yiichou/aliyun-oss-support/wiki/Quick-start)
 
 ### 下载
 
-[latest release](https://github.com/IvanChou/aliyun-oss-support/releases/latest)
+[latest release](https://github.com/yiichou/aliyun-oss-support/releases/latest)
 
 ### 安装
 
@@ -47,11 +47,11 @@ Stable: [`3.0.0`](https://github.com/IvanChou/aliyun-oss-support/releases/latest
 
 进入设置页面 完成相关设置
 
-![screenshot](https://github.com/IvanChou/aliyun-oss-support/blob/master/screenshot.png)
+![screenshot](https://github.com/yiichou/aliyun-oss-support/blob/master/screenshot.png)
 
 ## 启用图片服务
 
-关于插件中图片服务的 Wiki: [How to use Image Service](https://github.com/IvanChou/aliyun-oss-support/wiki/How-to-use-Image-Service)
+关于插件中图片服务的 Wiki: [How to use Image Service](https://github.com/yiichou/aliyun-oss-support/wiki/How-to-use-Image-Service)
 
 通常使用中,你不需要特别的去了解它。如果你对插件预设的图片处理规则不满意,或者你需要给图片加水印,可以参看这篇说明
 
@@ -65,7 +65,7 @@ Stable: [`3.0.0`](https://github.com/IvanChou/aliyun-oss-support/releases/latest
 
 ## 更新日志
 
-https://github.com/IvanChou/aliyun-oss-support/blob/master/CHANGELOG.md
+https://github.com/yiichou/aliyun-oss-support/blob/master/CHANGELOG.md
 
 ## 贡献代码
 

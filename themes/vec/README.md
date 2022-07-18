@@ -4,16 +4,16 @@ Vec is a minimal, clean and beautiful theme for [Hugo](http://gohugo.io/).
 
 [Demo](http://yii.im).
 
-![Vec screenshot](https://github.com/IvanChou/hugo-theme-vec/blob/master/images/tn.png)
+![Vec screenshot](https://github.com/yiichou/hugo-theme-vec/blob/master/images/tn.png)
 
-![Vec screenshot2](https://github.com/IvanChou/hugo-theme-vec/blob/master/images/tn2.png)
+![Vec screenshot2](https://github.com/yiichou/hugo-theme-vec/blob/master/images/tn2.png)
 
 ## Installation
 
 ```
 mkdir themes
 cd themes
-git clone https://github.com/IvanChou/hugo-theme-vec vec
+git clone https://github.com/yiichou/hugo-theme-vec vec
 ```
 
 See the [official docs](http://gohugo.io/themes/installing) for more information.
@@ -110,5 +110,5 @@ Cedric Fung(@vecio)
 
 ## License
 
-Open sourced under [MIT license](https://github.com/IvanChou/hugo-theme-vec/blob/master/LICENSE.md).
+Open sourced under [MIT license](https://github.com/yiichou/hugo-theme-vec/blob/master/LICENSE.md).
 
