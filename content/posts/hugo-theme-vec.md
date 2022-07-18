@@ -14,9 +14,9 @@ Vec is a minimal, clean and beautiful theme for [Hugo](http://gohugo.io/).
 
 [Repo](https://github.com/IvanChou/hugo-theme-vec).
 
-![Vec screenshot](https://img.ichou.cn/assets/90d226103db0d33cfc9738f7e31a2bf0.png)
+![Vec screenshot](https://stc.ichou.cn/assets/90d226103db0d33cfc9738f7e31a2bf0.png)
 
-![Vec screenshot2](https://img.ichou.cn/assets/2070fd4f8c95bbb187e08a9595d12089.png)
+![Vec screenshot2](https://stc.ichou.cn/assets/2070fd4f8c95bbb187e08a9595d12089.png)
 
 ## Installation
 

@@ -14,11 +14,11 @@ toc = false
 
 一个简单的微信授权的流程大致如下：
 
-![屏幕快照 2016-11-28 下午10.22.09](https://img.ichou.cn/assets/b8dcbd163afe76b05846eac50aee9ad6.png)
+![屏幕快照 2016-11-28 下午10.22.09](https://stc.ichou.cn/assets/b8dcbd163afe76b05846eac50aee9ad6.png)
 
 当然，在实际使用中，我们不会让用户每次都去授权，授权之后我们会把信息写入 session/cookie 中，于是一个比较标准的流程应该是：
 
-![屏幕快照 2016-11-28 下午10.34.17](https://img.ichou.cn/assets/a9ae91255bb76ba3a387722ae1a50e38.png)
+![屏幕快照 2016-11-28 下午10.34.17](https://stc.ichou.cn/assets/a9ae91255bb76ba3a387722ae1a50e38.png)
 
 ## state 该如何用
 
@@ -40,7 +40,7 @@ toc = false
 
 **在授权开始前生成并写入用户的 cookie（还需要加密），授权完成时，比对 url 与 cookie 中的 state，如果不一致便可判定为非法请求。**
 
-![屏幕快照 2016-11-28 下午11.27.27](https://img.ichou.cn/assets/300a204f1dd9441ecfd6b825dc9089a3.png)
+![屏幕快照 2016-11-28 下午11.27.27](https://stc.ichou.cn/assets/300a204f1dd9441ecfd6b825dc9089a3.png)
 
 
 ## 40029 报错如何处理
