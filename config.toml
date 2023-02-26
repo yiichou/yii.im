@@ -5,7 +5,7 @@ theme = "vec"
 paginate = 20
 disqusShortname = "yiiim"
 googleAnalytics = "UA-57408564-1"
-  
+
 [menu]
   # Shown in the side menu.
   [[menu.main]]
@@ -16,14 +16,12 @@ googleAnalytics = "UA-57408564-1"
     name = "about"
     weight = 0
     url = "/about"
-    
+
 [params]
-  Keywords = "ichou, ruby, rails"
+  Keywords = "IChou, Ruby, Rails, SRE"
   Description = ""
   Avatar = "/avatar.jpeg"
-  SelfIntro = "Just a worm, seek for true, live in shadow, no more..." 
-  
+  SelfIntro = "Just a worm, seek for true, live in shadow, no more..."
+
   Email = "yiichou@gmail.com"
   GithubID = "yiichou"
-  TwitterID = "IamIchou"
-  GoogleplusID = "106025147843011494846"
