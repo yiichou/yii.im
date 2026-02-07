@@ -31,7 +31,6 @@ AME 未自动授权时，需要运行社区补丁脚本激活后，才能正常�
 
 1. SSH 登录群晖，执行 `sudo -i` 切换为 root。
 2. 执行以下命令：
-
    ```bash
    # DSM 7.2，AME 3.1.0-3005
    curl -L http://code.imnks.com/ame3patch/ame72-3005.py | python
@@ -47,7 +46,7 @@ AME 未自动授权时，需要运行社区补丁脚本激活后，才能正常�
 
 **依赖：**
 
-- 提前在套件中心安装 **SynoCommunity ffmpeg**（4.x / 5.x / 7.x 均可，脚本用 `-v` 指定版本）。
+- 提前在套件中心安装 **SynoCommunity ffmpeg**（4.x / 5.x / 7.x 均可）。
 
 **支持场景（摘自项目说明）：**
 
@@ -59,11 +58,11 @@ AME 未自动授权时，需要运行社区补丁脚本激活后，才能正常�
 
 1. SSH 登录并 `sudo -i` 取得 root。
 2. 执行 Patcher（按你安装的 ffmpeg 版本修改 `-v`，例如 4、5、7）：
-
-   默认使用 ffmpeg4 的写法：
-
    ```bash
+   # 默认使用 ffmpeg4 的写法
    curl https://raw.githubusercontent.com/AlexPresso/VideoStation-FFMPEG-Patcher/main/patcher.sh | bash
+   # 若你安装的是 ffmpeg7，则可能是：
+   curl https://raw.githubusercontent.com/AlexPresso/VideoStation-FFMPEG-Patcher/main/patcher.sh | bash -v 7
    ```
 
 3. 每次**更新 Video Station、AME 或 DSM** 后，建议重新执行一次 patcher（先 unpatch 再 patch，见项目 README 的 Update procedure）。
@@ -72,9 +71,15 @@ AME 未自动授权时，需要运行社区补丁脚本激活后，才能正常�
 
 ## 第三步：使用 VA-API 开启硬解
 
-本步让 Video Station 通过 **VA-API** 调用核显/独显做硬件解码与转码。要点是：AME 自带的 `ffmpeg41` 才支持 VA-API，但 **Codec Pack** 里的 ffmpeg 硬解有问题，需要换成 SynoCommunity 的 ffmpeg，并对 Video Station 的若干文件打补丁。以下整理自 [xpenology 论坛：Video Station 使用 VAAPI 硬解的方法](https://xpenology.com/forum/topic/70520-video-station-%E4%BD%BF%E7%94%A8vaapi-%E7%A1%AC%E8%A7%A3-%E7%9A%84%E6%96%B9%E6%B3%95/)（作者 Martian，2024 年 6 月）。
+本步让 Video Station 通过 **VA-API** 调用核显/独显做硬件解码与转码。核心思路是 AME 自带的 `ffmpeg41` 支持 VA-API，通过对 Video Station 的若干文件打补丁，即可调用硬件解码能力。（但 **Codec Pack** 里的 ffmpeg 硬解有问题，需要换成 SynoCommunity 的 ffmpeg）
 
-**手动操作步骤：**
+以下整理自 [xpenology 论坛：Video Station 使用 VAAPI 硬解的方法](https://xpenology.com/forum/topic/70520-video-station-%E4%BD%BF%E7%94%A8vaapi-%E7%A1%AC%E8%A7%A3-%E7%9A%84%E6%96%B9%E6%B3%95/)（作者 Martian，2024 年 6 月）。
+
+**Patch 文件**
+
+[vs_patch.zip](https://chou.oss-cn-hangzhou.aliyuncs.com/yii.im/asset/vs_patch.zip)
+
+**操作步骤：**
 
 1. **确认 AME 已安装并已激活**
 
@@ -89,40 +94,38 @@ AME 未自动授权时，需要运行社区补丁脚本激活后，才能正常�
    - `/var/packages/VideoStation/target/ui/cgi/advanced_manage.cgi`
 
 4. **用 SynoCommunity 的 ffmpeg 替代 Codec Pack 的 ffmpeg41**
-
    ```bash
    # 若原位置已有 ffmpeg41，可先备份或删除后再建链接
    ln -sf /var/packages/ffmpeg/target/bin/ffmpeg /var/packages/CodecPack/target/bin/ffmpeg41
+   # 若你安装的是 ffmpeg7，则可能是：
+   ln -sf /var/packages/ffmpeg7/target/bin/ffmpeg /var/packages/CodecPack/target/bin/ffmpeg41
    ```
 
-   作者还提供了一个 **代理程序** `ffmpeg41`（会复制到 `/var/packages/CodecPack/target/bin/ffmpeg41`），并在 `ffmpeg41.ini` 中配置 `app_path=/var/packages/ffmpeg/target/bin/ffmpeg`，可将实际调用日志写入 `/tmp/logs/ffmpeg41_proxy.log` 便于调试；若不需要调试，用上述符号链接即可。
+5. **（可选）开启调试日志**
 
-5. **在 Video Station 设置中确认硬件加速**
-   打开 Video Station → 设置，在转码/播放相关选项中勾选**启用硬件解码**。保存后播放高码率或 HEVC 视频，在**资源监控**中观察 CPU 占用应明显降低，且内核日志中可能出现 `SNVS display_info: has_dcb: yes`、`has_dci: yes` 等，表示 VA-API 已被识别。
+      作者提供了一个 **代理程序** `ffmpeg41`，将 `ffmpeg41` 与 `ffmpeg41.ini` 复制到 `/var/packages/CodecPack/target/bin/` 目录下，可将实际调用日志写入 `/tmp/logs/ffmpeg41_proxy.log` 便于调试。
 
-**自动脚本：**
+6. **在 Video Station 设置中确认硬件加速**
 
-1. Patch: [vs_patch.zip](https://chou.oss-cn-hangzhou.aliyuncs.com/yii.im/asset/vs_patch.zip)
+      打开 Video Station → 设置，在转码/播放相关选项中勾选**启用硬件解码**。保存后播放高码率或 HEVC 视频，在**资源监控**中观察 CPU 占用应明显降低，且内核日志中可能出现 `SNVS display_info: has_dcb: yes`、`has_dci: yes` 等，表示 VA-API 已被识别。
 
-2. Usage:
+**自动安装：**
 
-   ```bash
-   cd /path/to/vs_patch
-   ./patch.sh
-   ```
-3. 脚本中默认使用 ffmpeg4，若需使用其他版本的 ffmpeg，可在 ffmpeg41.ini 中修改 `app_path`。
+1. vs_patch.zip 中自带了安装脚本 `patch.sh`，执行该脚本会自动完成 3、4、5 步的操作。
 
-   配置文件：`/var/packages/CodecPack/target/pack/bin/ffmpeg41.ini`
+2. 脚本中默认使用 ffmpeg4，若需使用其他版本的 ffmpeg，可在 ffmpeg41.ini 中修改 `app_path`。
 
-   ```ini
-   [Paths]
-   app_path=/var/packages/ffmpeg7/target/bin/ffmpeg
+      配置文件：`/var/packages/CodecPack/target/pack/bin/ffmpeg41.ini`
 
-   [Logging]
-   enabled=false # 如果不需要调试，可以关闭日志
-   log_file=/tmp/logs/ffmpeg41_proxy.log
-   include_time=false
-   ```
+      ```ini
+      [Paths]
+      app_path=/var/packages/ffmpeg7/target/bin/ffmpeg
+
+      [Logging]
+      enabled=false # 如果不需要调试，可以关闭日志
+      log_file=/tmp/logs/ffmpeg41_proxy.log
+      include_time=false
+      ```
 
 **测试环境：**
 SA6400，Intel N100，Intel UHD730 核显，Video Station 3.1.1-3168，AME 3.1.0-3005。
@@ -134,9 +137,10 @@ SA6400，Intel N100，Intel UHD730 核显，Video Station 3.1.1-3168，AME 3.1.0
 ## 小结与参考链接
 
 - **三步流程**：
-  1）[激活 AME](https://imnks.com/385.html)（DSM 7.2 使用 `ame72-3005.py`）；
-  2）[VideoStation-FFMPEG-Patcher](https://github.com/AlexPresso/VideoStation-FFMPEG-Patcher) 修复 DTS、EAC3、TrueHD；
-  3）[VA-API 硬解](https://xpenology.com/forum/topic/70520-video-station-%E4%BD%BF%E7%94%A8vaapi-%E7%A1%AC%E8%A7%A3-%E7%9A%84%E6%96%B9%E6%B3%95/)：安装 SynoCommunity ffmpeg，对 Video Station 指定库与 CGI 打补丁，并将 Codec Pack 的 `ffmpeg41` 替换为 SynoCommunity ffmpeg 的符号链接（或使用帖中代理程序），最后在设置中启用 VA-API 硬件解码。
+
+  1. [激活 AME](https://imnks.com/385.html)（DSM 7.2 使用 `ame72-3005.py`）；
+  2. [VideoStation-FFMPEG-Patcher](https://github.com/AlexPresso/VideoStation-FFMPEG-Patcher) 修复 DTS、EAC3、TrueHD；
+  3. [VA-API 硬解](https://xpenology.com/forum/topic/70520-video-station-%E4%BD%BF%E7%94%A8vaapi-%E7%A1%AC%E8%A7%A3-%E7%9A%84%E6%96%B9%E6%B3%95/)：安装 SynoCommunity ffmpeg，对 Video Station 指定库与 CGI 打补丁，并将 Codec Pack 的 `ffmpeg41` 替换为 SynoCommunity ffmpeg 的符号链接（或使用帖中代理程序），最后在设置中启用 VA-API 硬件解码。
 
 - 若将来升级到 **DSM 7.2.2**，官方已移除 Video Station，需先用社区脚本（如 [007revad/Video_Station_for_DSM_722](https://github.com/007revad/Video_Station_for_DSM_722)）安装再按同样思路配置 AME 与硬解。
 
